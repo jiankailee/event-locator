@@ -9,7 +9,7 @@
             font-family: "Adobe Caslon Pro";
             font-size: 50px;
             border: 2px solid blue;
-            background-color: aqua;
+            <!--background-color: aqua;-->
             border-radius: 10px/10px;
             text-shadow: 2px 2px 5px black;
             text-align: center;
@@ -51,11 +51,11 @@
     </style>
     <script>
 
-        var x2 = prompt("password","");
-        while(x2 != "asdf"){
+        var x2 = prompt("type 1234567890","");
+        while(x2 != "1234567890"){
                 x2 = prompt("incorrect!","");
             }
-        if(x2 == "asdf") {
+        if(x2 == "1234567890") {
             alert("Success!");
         }
 
@@ -69,11 +69,11 @@
 <br><br>
 <form method="get" action="userinput.php" class="class3">
     username
-    <input type="text"  placeholder="username" maxlength="10">
+    <input type="text"  placeholder="username" id="user" maxlength="10">
     <input type="radio" value="remenber me">remenber username
     <br><br>
     password
-    <input type="password" placeholder="password" maxlength="10">
+    <input type="password" placeholder="password" id="password" maxlength="10">
     <input type="radio" value="remenber me">remenber password
     <br><br>
 
@@ -81,9 +81,14 @@
     <br><br>
 
     <br><br>
-
-
 </form>
+
+<script>
+    var user = document.getElementById("user").value;
+    var password = document.getElementById("password").value;
+
+</script>
+
 <br><br>
 <a class="class3" href="help.html">help</a>
 <p class="class4"></p>
