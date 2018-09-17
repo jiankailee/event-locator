@@ -17,6 +17,7 @@ class App extends Component {
       //   </p>
       // </div>
       <div className="App">
+        <Link to='/'>Home</Link>
         <Link to="/login">Login</Link>
       <Link to="/signup">sign up</Link>
       <Main></Main>
