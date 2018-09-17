@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import {Link} from 'react-router-dom';
 import Main from './components/main';
+import AppBar from './components/AppBar';
+
+// import Switch from 'react-router-dom/Switch';
+// import Route from 'react-router-dom/Route';
+// import login from './components/login';
+// import signup from './components/signup';
+
 
 class App extends Component {
   render() {
@@ -16,11 +23,14 @@ class App extends Component {
       //     To get started, edit <code>src/App.js</code> and save to reload.
       //   </p>
       // </div>
+      
       <div className="App">
-        <Link to='/'>Home</Link>
+      <AppBar/>
+
+        {/* <Link to='/'>Home</Link>
         <Link to="/login">Login</Link>
-      <Link to="/signup">sign up</Link>
-      <Main></Main>
+      <Link to="/signup">sign up</Link> */}
+      <Main/>
       </div>
       
     );
