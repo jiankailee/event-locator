@@ -62,7 +62,7 @@ class login extends Component{
     const { classes } = this.props;
     return (
         <div>
-        
+        <h2>Log in</h2>
         <form className={classes.container} noValidate autoComplete="off">
         <TextField
           id="email"
