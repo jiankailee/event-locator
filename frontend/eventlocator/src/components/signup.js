@@ -36,7 +36,8 @@ class signup extends Component{
         this.state = {
           email: '',
           password:'',
-      
+          address:'',
+          name:'',
         };
         this.onChange= this.change.bind(this);
         this.onSubmit=this.submit.bind(this);
@@ -84,7 +85,7 @@ class signup extends Component{
                 label="Email"
                 name="email"
                 className={classes.textField}
-                value={this.state.name}
+                // value={this.state.name}
                 onChange={this.change}
                 margin="normal"
                 />
@@ -93,8 +94,9 @@ class signup extends Component{
                 id="address"
                 label="Address"
                 name="address"
+                type="address"
                 className={classes.textField}
-                value={this.state.name}
+                // value={this.state.name}
                 onChange={this.change}
                 margin="normal"
                 />
