@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 //import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import AppBar from './AppBar';
 
 const styles = theme => ({
 
@@ -60,6 +61,7 @@ class signup extends Component{
         const { classes } = this.props;
         return(
         <div>
+        <AppBar/>
         <h2>Sign Up</h2>
             <form className={classes.container} noValidate autoComplete="off">
                 <TextField
