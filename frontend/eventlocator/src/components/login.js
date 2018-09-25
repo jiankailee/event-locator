@@ -11,7 +11,7 @@ const styles = theme => ({
     container: {
       //display: 'flex',
       flexWrap: 'wrap',
-      
+      flexDirection: 'column',
     },
     textField: {
       marginLeft: theme.spacing.unit,
