@@ -7,7 +7,7 @@ import List from './list'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
   },
   paper: {
     padding: theme.spacing.unit * 2,
