@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 
 import Grid from './grid';
 
 import AppBar from './../AppBar';
+
+import Mapbox from './mapbox';
 
 
 
@@ -11,9 +12,10 @@ class Landing extends Component {
   render() {
     return (
       
-      <div>
+      <div display= 'flex'>
       <AppBar/>
       <Grid/>
+      <Mapbox/>
       </div>
       
     );

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import {Link} from 'react-router-dom';
 import Main from './components/main';
-import AppBar from './components/AppBar';
 
 // import Switch from 'react-router-dom/Switch';
 // import Route from 'react-router-dom/Route';
