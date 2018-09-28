@@ -31,34 +31,45 @@ const styles = theme => ({
 
 
 class Login extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      email: '',
-      password:'',
-  
-    };
-    this.onChange= this.change.bind(this);
-    this.onSubmit=this.submit.bind(this);
+  state={
+    userInfo:{
+      user:'',
+      password:''
+    }
   }
+    // this.onChange= this.change.bind(this);
+    // this.onSubmit=this.submit.bind(this);
   
-  change=e=>{
-    this.setState({
-      [e.target.name]: e.target.value
-    })
+  
+  // change=e=>{
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   })
+    
+  // }
+// submit =e=>{
+//   e.preventDefault();
+//   console.log(this.state);
+//   let json=JSON.stringify(this.state);
+//   console.log(json);
+// }
+  componentDidMount(){
+    this.signup();
+  }
+  signup=e=>{
+    const {userInfo}=this.state;
+    // console.log(userInfo.user,userInfo.password)
+    fetch(`http://localhost:4000/product/add?user=${userInfo.user}&password=${userInfo.password}`)
+    .catch(err=>console.log(err))
     
   }
-submit =e=>{
-  e.preventDefault();
-  console.log(this.state);
-  let json=JSON.stringify(this.state);
-  console.log(json);
-}
-  
+  renderThanks=_=>
+    <div>thank you sign up</div>
   
   render() {
     
     const { classes } = this.props;
+    const {userInfo}=this.state;
     return (
       <form className={classes.container} noValidate autoComplete="off">
         <TextField
@@ -66,8 +77,8 @@ submit =e=>{
           label="Email"
           name="email"
           className={classes.textField}
-          value={this.state.name}
-          onChange={this.change}
+          value={userInfo.user}
+          onChange={e=>this.setState({userInfo:{...userInfo,user:e.target.value}})}
           margin="normal"
         />
         <TextField
@@ -78,11 +89,13 @@ submit =e=>{
           type="password"
           autoComplete="current-password"
           margin="normal"
-          onChange={this.change}
+          value={userInfo.password}
+          onChange={e=>this.setState({userInfo:{...userInfo,password:e.target.value}})}
         />
-        <Button onClick={e=>this.submit(e)} variant="contained" className={classes.button}>
-          Login 
+        <Button onClick={e=>this.signup(e)} variant="contained" className={classes.button}>
+          singup 
         </Button>
+        {this.renderThanks}
         </form>
       // <form onSubmit={this.onSubmit}>
       // <input name="email" placeholder="Email" value={this.state.email}
