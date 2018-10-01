@@ -15,7 +15,7 @@ class Landing extends Component {
       <div display= 'flex'>
       <AppBar/>
       <Grid/>
-      <Mapbox/>
+      
       </div>
       
     );
