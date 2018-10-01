@@ -32,45 +32,56 @@ const styles = theme => ({
 
 class signup extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
+    state = {
+      userInfo:{
+      username: '',
       password: '',
+      email: '',
       address: '',
-      name: '',
-    };
-    this.onChange = this.change.bind(this);
-    this.onSubmit = this.submit.bind(this);
-  }
+      signed: false
+      }
+    }
 
-  change = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-
+  componentDidMount(){
+    this.signup();
   }
-  submit = e => {
-    e.preventDefault();
-    console.log(this.state);
-    let json = JSON.stringify(this.state);
-    console.log(json);
+  signup = e => {
+    const {userInfo}=this.state;
+    //console.log(userInfo.signed);
+    if(userInfo.username!=""&&userInfo.password!=""&&userInfo.email!=""&&userInfo.address!=""){
+      //console.log(userInfo);
+      this.setState({userInfo:{...userInfo,signed:true}});
+      //console.log(userInfo.signed);
+    fetch(`http://localhost:4000/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
+    .catch(err=>console.log(err))
+    }
+     //e.preventDefault();
+   // console.log(this.state);
+    // let json = JSON.stringify(this.state);
+    // console.log(json);
+    
   }
 
   render() {
     const { classes } = this.props;
+    const {userInfo}=this.state;
+    let printSigned;
+    console.log("render: "+userInfo.signed);
+    if(userInfo.signed){
+      printSigned=<div>thank you for register! please login in </div>
+    }
     return (
       <div>
         <AppBar />
         <h2>Sign Up</h2>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
-            id="name"
-            label="name"
-            name="name"
+            id="username"
+            label="username"
+            name="username"
             className={classes.textField}
-            value={this.state.name}
-            onChange={this.change}
+            value={userInfo.username}
+            onChange={e=>this.setState({userInfo:{...userInfo,username:e.target.value}})}
             margin="normal"
           />
           <TextField
@@ -78,18 +89,19 @@ class signup extends Component {
             id="password"
             label="Password"
             className={classes.textField}
+            value={userInfo.password}
             type="password"
             margin="normal"
-            onChange={this.change}
+            onChange={e=>this.setState({userInfo:{...userInfo,password:e.target.value}})}
           />
           <TextField
-            id="email"
-            label="Email"
-            name="email"
-            className={classes.textField}
-            // value={this.state.name}
-            onChange={this.change}
-            margin="normal"
+          id="email"
+          label="Email"
+          name="email"
+          className={classes.textField}
+          value={userInfo.email}
+          onChange={e=>this.setState({userInfo:{...userInfo,email:e.target.value}})}
+          margin="normal"
           />
 
           <TextField
@@ -98,14 +110,15 @@ class signup extends Component {
             name="address"
             type="address"
             className={classes.textField}
-            // value={this.state.name}
-            onChange={this.change}
+            value={userInfo.address}
+            onChange={e=>this.setState({userInfo:{...userInfo,address:e.target.value}})}
             margin="normal"
           />
 
-          <Button onClick={e => this.submit(e)} variant="contained" className={classes.button}>
-            Sign Up
-                </Button>
+           <Button onClick={e=>this.signup(e)} variant="contained" className={classes.button}>
+          singup 
+        </Button>
+        {printSigned}
         </form>
       </div>
     );
