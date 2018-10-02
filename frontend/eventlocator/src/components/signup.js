@@ -48,7 +48,7 @@ class signup extends Component {
   signup = e => {
     const {userInfo}=this.state;
     //console.log(userInfo.signed);
-    if(userInfo.username!=""&&userInfo.password!=""&&userInfo.email!=""&&userInfo.address!=""){
+    if(userInfo.username!==""&&userInfo.password!==""&&userInfo.email!==""&&userInfo.address!==""){
       //console.log(userInfo);
       this.setState({userInfo:{...userInfo,signed:true}});
       //console.log(userInfo.signed);

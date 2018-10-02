@@ -73,8 +73,8 @@ class login extends Component {
     console.log(this.state);
     for(var i=0;i<this.state.alluser.length;i++){
       //console.log(this.state.alluser[i].username);
-      if(this.state.alluser[i].username==this.state.username&&
-        this.state.alluser[i].password==this.state.password){
+      if(this.state.alluser[i].username===this.state.username&&
+        this.state.alluser[i].password===this.state.password){
           this.setState({loggedIn:true});
         console.log("username exist");
       }
