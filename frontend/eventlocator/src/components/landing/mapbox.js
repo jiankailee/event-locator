@@ -15,8 +15,8 @@ L.Icon.Default.mergeOptions({
 
 class Mapbox extends Component {
     state = {
-        lat: 51.505,
-        lng: -0.09,
+        lat: 42.0308,
+        lng: -93.6319,
         zoom: 13,
     }
     render() {
