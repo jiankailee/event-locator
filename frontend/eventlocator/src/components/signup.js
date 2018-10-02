@@ -66,7 +66,7 @@ class signup extends Component {
     const { classes } = this.props;
     const {userInfo}=this.state;
     let printSigned;
-    console.log("render: "+userInfo.signed);
+    //console.log("render: "+userInfo.signed);
     if(userInfo.signed){
       printSigned=<div>thank you for register! please login in </div>
     }
