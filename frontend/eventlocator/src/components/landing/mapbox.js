@@ -15,9 +15,9 @@ L.Icon.Default.mergeOptions({
 
 class Mapbox extends Component {
     state = {
-        lat: 42.0308,
-        lng: -93.6319,
-        zoom: 13,
+        lat: 42.0284,
+        lng: -93.6509,
+        zoom: 14,
     }
     render() {
         const position = [this.state.lat, this.state.lng]
@@ -31,7 +31,7 @@ class Mapbox extends Component {
                     />
                     <Marker position={position}>
                         <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
+                            <b>Coover Hall</b> <br /> TG_7 is working
                         </Popup>
                     </Marker>
                 </Map>
