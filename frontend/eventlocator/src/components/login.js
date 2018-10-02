@@ -94,7 +94,8 @@ class login extends Component {
     let printError;
     //const { from } = this.props.location.state || { from: { pathname: "/" } };
     if (this.state.loggedIn) {
-      return <Redirect to="/user/:username" />;
+      return <Redirect to={`/user/${this.state.username}`} />;
+      //return <Redirect to="/user" />;
     }
     if(this.state.loggedInError){
       printError=<div>Incorrect password. Please try again </div>
