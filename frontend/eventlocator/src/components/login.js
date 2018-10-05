@@ -57,7 +57,7 @@ class login extends Component {
     this.getUsersInfo();
   }
   getUsersInfo=_=>{
-    fetch('http://localhost:4000/usersInfo')
+    fetch('/usersInfo')
     .then(response=>response.json())
     .then(response=>this.setState({alluser: response.data}))
     // .then({data})=>{

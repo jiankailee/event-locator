@@ -52,7 +52,7 @@ class signup extends Component {
       //console.log(userInfo);
       this.setState({userInfo:{...userInfo,signed:true}});
       //console.log(userInfo.signed);
-    fetch(`http://localhost:4000/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
+    fetch(`/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
     .catch(err=>console.log(err))
     }
      //e.preventDefault();
