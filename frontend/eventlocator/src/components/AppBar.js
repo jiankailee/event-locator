@@ -7,15 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const styles = {
-
   root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
+    display: 'flex',
   },
   menuButton: {
     marginLeft: -12,
@@ -29,14 +25,14 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-        <Button color="inherit"><Link style={{ textDecoration: 'none', color:'white' }} to='/'>Home</Link></Button>
+          <Link style={{ textDecoration: 'none', color: 'white'}} to='/'><Button color="inherit">Home</Button></Link>
 
           <Typography variant="title" color="inherit" className={classes.grow}>
             Event Locator
           </Typography>
-          
-          <Button color="inherit"><Link style={{ textDecoration: 'none', color:'white' }} to="/login">Login</Link></Button>
-          <Button color="inherit"><Link style={{ textDecoration: 'none', color:'white' }} to="/signup">sign up</Link> </Button>
+
+          <Link style={{ textDecoration: 'none', color: 'white' }} to="/login"><Button color="inherit">Login</Button></Link>
+          <Link style={{ textDecoration: 'none', color: 'white' }} to="/signup"><Button color="inherit">sign up</Button></Link>
           {/* <Link style={{ textDecoration: 'none', color:'white' }} to='/'>Home</Link>
           <Link style={{ textDecoration: 'none', color:'white' }} to="/login">Login</Link>
           <Link style={{ textDecoration: 'none', color:'white' }} to="/signup">sign up</Link>  */}
