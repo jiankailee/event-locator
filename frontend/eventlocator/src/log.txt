@@ -1,0 +1,60 @@
+/var/www/html/TG_7_EventLocator/frontend/eventlocator/src/index.js:1
+(function (exports, require, module, __filename, __dirname) { import React from 'react';
+                                                              ^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:56:10)
+    at Object.runInThisContext (vm.js:97:10)
+    at Module._compile (module.js:549:28)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+    at Function.Module._load (module.js:445:3)
+    at Module.runMain (module.js:611:10)
+    at run (bootstrap_node.js:394:7)
+    at startup (bootstrap_node.js:160:9)
+/var/www/html/TG_7_EventLocator/frontend/eventlocator/src/index.js:1
+(function (exports, require, module, __filename, __dirname) { import React from 'react';
+                                                              ^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:56:10)
+    at Object.runInThisContext (vm.js:97:10)
+    at Module._compile (module.js:549:28)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+    at Function.Module._load (module.js:445:3)
+    at Module.runMain (module.js:611:10)
+    at run (bootstrap_node.js:394:7)
+    at startup (bootstrap_node.js:160:9)
+/var/www/html/TG_7_EventLocator/frontend/eventlocator/src/index.js:1
+(function (exports, require, module, __filename, __dirname) { import React from 'react';
+                                                              ^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:56:10)
+    at Object.runInThisContext (vm.js:97:10)
+    at Module._compile (module.js:549:28)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+    at Function.Module._load (module.js:445:3)
+    at Module.runMain (module.js:611:10)
+    at run (bootstrap_node.js:394:7)
+    at startup (bootstrap_node.js:160:9)
+/var/www/html/TG_7_EventLocator/frontend/eventlocator/src/index.js:1
+(function (exports, require, module, __filename, __dirname) { import React from 'react';
+                                                              ^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:56:10)
+    at Object.runInThisContext (vm.js:97:10)
+    at Module._compile (module.js:549:28)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+    at Function.Module._load (module.js:445:3)
+    at Module.runMain (module.js:611:10)
+    at run (bootstrap_node.js:394:7)
+    at startup (bootstrap_node.js:160:9)
