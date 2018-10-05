@@ -42,13 +42,6 @@ class Mapbox extends Component {
                         attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {/* <div id="marker_container">
-                    <Marker position={position}>
-                        <Popup>
-                            <b>Coover Hall</b> <br /> TG_7 is working
-                        </Popup>
-                    </Marker>
-                    </div> */}
                     <Example components={test_info}/>
                 </Map>
             </div >
