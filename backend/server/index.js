@@ -4,10 +4,10 @@ const mysql=require('mysql');
 
 const app=express();
 
-const selectAll ='select * from 309project.usersInfo;';
+const selectAll ='SELECT * FROM usersInfo;';
 
 const connection=mysql.createConnection({
-    host:'http://proj309-tg-07.misc.iastate.edu',
+    host:'localhost',
     user:'team1',
     password:'1234Qwe!',
     database:'309project'
@@ -50,6 +50,6 @@ app.get('/usersInfo',(req,res)=>{
         }
      });
 });
-app.listen(5000,()=>{
-  console.log('Products server listening on port 4000');
+app.listen(8080, '0.0.0.0',()=>{
+  console.log('Server Listening on 5000');
 })
