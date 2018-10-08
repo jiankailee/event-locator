@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { createRef, Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -32,8 +32,19 @@ class Mapbox extends Component {
         lng: -93.6509,
         zoom: 14,
     }
+
+
     render() {
+
+
+
+
+
         const position = [this.state.lat, this.state.lng]
+        var test1 = ['Coover Hall', [42.0284, -93.6509]];
+
+        test_info.push(test1)
+
         return (
             <div className="App">
                 <Map className="map" center={position} zoom={this.state.zoom}>
