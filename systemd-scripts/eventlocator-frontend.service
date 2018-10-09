@@ -1,0 +1,17 @@
+[Unit]
+Description=Starts the Nodejs Eventlocator Frontend Server
+After=mysqld.service
+After=nginx.service
+
+[Service]
+Type=simple
+User=nobody
+ExecStart=/usr/bin/npm start
+Restart=on-failure
+WorkingDirectory=/var/www/html/TG_7_EventLocator/frontend/eventlocator/
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+
