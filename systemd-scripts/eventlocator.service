@@ -1,0 +1,17 @@
+[Unit]
+Description=Starts the Nodejs Eventlocator Servers
+After=mysqld.service
+After=nginx.service
+
+[Service]
+Type=simple
+User=nobody
+ExecStart=node /var/www/html/TG_7_EventLocator/backend/server/index.js
+ExecStart=cd /var/www/html/TG_7_EventLocator/frontend/eventlocator/src/; npm start
+WorkingDirectory=/var/www/html/TG_7_EventLocator/
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+
