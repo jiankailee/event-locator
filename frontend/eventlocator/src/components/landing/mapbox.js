@@ -11,7 +11,7 @@ delete L.Icon.Default.prototype._getIconUrl;
 
 const Example = ({components}) => (
     <div>
-        {components.map((component, i) => <Marker key={i} position={[42.0281, -93.6488]}>
+        {components.map((component, i) => <Marker key={i} position={[component.latitude, component.longitude]}>
         <Popup>
             {component.eventName}
         </Popup>
