@@ -5,6 +5,7 @@ const mysql=require('mysql');
 const app=express();
 
 const selectAll ='SELECT * FROM usersInfo;';
+const allevents ='SELECT * FROM event';
 
 const connection=mysql.createConnection({
     host:'localhost',
@@ -41,6 +42,18 @@ app.get('/usersInfo/add',(req,res)=>{
 app.get('/usersInfo',(req,res)=>{
      //res.send("in usersInfo");
     connection.query(selectAll,(err,results)=>{
+        if(err){
+            return res.send(err);
+        }else{
+            return res.json({
+                data:results
+            })
+        }
+     });
+});
+app.get('/events',(req,res)=>{
+     //res.send("in usersInfo");
+    connection.query(allevents,(err,results)=>{
         if(err){
             return res.send(err);
         }else{
