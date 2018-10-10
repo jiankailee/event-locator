@@ -79,7 +79,7 @@ class login extends Component {
         console.log("username exist");
       }
     }
-    if(this.state.loggedIn==false){
+    if(this.state.loggedIn===false){
       this.setState({loggedInError:true});
     }
     //let json = JSON.stringify(this.state);

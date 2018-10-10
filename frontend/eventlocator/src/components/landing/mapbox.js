@@ -39,10 +39,24 @@ class Mapbox extends Component {
         lat: 42.0284,
         lng: -93.6509,
         zoom: 14,
+        allLocation:[],
     }
+    componentDidMount(){
+        this.getUsersInfo();
+      }
+    getUsersInfo=_=>{
+        fetch('http://proj309-tg-07.misc.iastate.edu:8080/events')
+        .then(response=>response.json())
+        .then(response=>this.setState({allLocation: response.data}))
+        // .then({data})=>{
+        //   console.log(data)
+        // })
+        .catch(err=>console.log(err))
+        //console.log(this.state.alluser);
+      }
 
     render() {
-
+        console.log(this.state.allLocation)
         var test_info = [['Parks Library', [42.0281, -93.6488]], ['Memorial Union', [42.0237, -93.6459]]];
 
         var test1 = ['Coover Hall', [42.0284, -93.6509]];

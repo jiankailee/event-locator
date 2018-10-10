@@ -50,7 +50,7 @@ class signup extends Component {
   signup = e => {
     const {userInfo}=this.state;
     //console.log(userInfo.signed);
-    if(userInfo.username!=""&&userInfo.password!=""&&userInfo.email!=""&&userInfo.address!=""){
+    if(userInfo.username!==""&&userInfo.password!==""&&userInfo.email!==""&&userInfo.address!==""){
     fetch(`http://proj309-tg-07.misc.iastate.edu:8080/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
     this.setState({userInfo:{...userInfo,signed:true}});
     //.catch(err=>console.log(err))
