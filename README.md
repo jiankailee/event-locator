@@ -6,6 +6,12 @@ Starting the Nginx HTTP Server (passes the npm localhost server to the internet)
 ```
 sudo systemctl start nginx
 ```
+### NEW USEFUL SERVER COMMANDS
+```
+sudo systemctl COMMAND HERE eventlocator-frontend
+sudo systemctl COMMAND HERE eventlocator-backend
+```
+The Commands which are useful for systemctl are : start, restart, and status
 
 ### Starting the NPM Development Server on Localhost:
 Change to the project's directory. Git command can be used to update this folder
