@@ -33,7 +33,6 @@ L.Icon.Default.mergeOptions({
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 
-var test_info = [['Parks Library', [42.0281, -93.6488]], ['Memorial Union', [42.0237, -93.6459]]];
 
 class Mapbox extends Component {
     state = {
@@ -42,31 +41,27 @@ class Mapbox extends Component {
         zoom: 14,
     }
 
-
     render() {
 
+        var test_info = [['Parks Library', [42.0281, -93.6488]], ['Memorial Union', [42.0237, -93.6459]]];
 
-
-
-
-        const position = [this.state.lat, this.state.lng]
         var test1 = ['Coover Hall', [42.0284, -93.6509]];
-
-        test_info.push(test1)
+        test_info.push(test1);
 
         return (
             <div className="App">
-                <Map className="map" center={position} zoom={this.state.zoom}>
-                    {/* <LocateControl options={locateOptions} startDirectly/> */}
+                <Map className="map" center={this.state} zoom={this.state.zoom}>
                     {/* <Map_search_bar/> */}
                     <TileLayer
                         attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        url= "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
+
                     <Example components={test_info}/>
                 </Map>
             </div >
         );
+
     }
 }
 
