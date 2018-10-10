@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import '../../App.css';
 import Map_search_bar from './map_search';
 import L from 'leaflet';
+import LocateControl from 'react-leaflet-locate-control'
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -17,6 +18,14 @@ const Example = ({components}) => (
         </Marker>)}
     </div>
 )
+
+const locateOptions = {
+    position: 'topright',
+    strings: {
+        title: 'Show me where I am, yo!'
+    },
+    onActivate: () => {} // callback before engine starts retrieving locations
+  }
 
 L.Icon.Default.mergeOptions({
     iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
@@ -48,6 +57,7 @@ class Mapbox extends Component {
         return (
             <div className="App">
                 <Map className="map" center={position} zoom={this.state.zoom}>
+                    {/* <LocateControl options={locateOptions} startDirectly/> */}
                     {/* <Map_search_bar/> */}
                     <TileLayer
                         attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
