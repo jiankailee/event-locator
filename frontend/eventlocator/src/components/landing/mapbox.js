@@ -11,9 +11,9 @@ delete L.Icon.Default.prototype._getIconUrl;
 
 const Example = ({components}) => (
     <div>
-        {components.map((component, i) => <Marker key={i} position={component[1]}>
+        {components.map((component, i) => <Marker key={i} position={[42.0281, -93.6488]}>
         <Popup>
-            {component[0]}
+            {component.eventName}
         </Popup>
         </Marker>)}
     </div>
@@ -71,7 +71,7 @@ class Mapbox extends Component {
                         url= "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
 
-                    <Example components={test_info}/>
+                    <Example components={this.state.allLocation}/>
                 </Map>
             </div >
         );
