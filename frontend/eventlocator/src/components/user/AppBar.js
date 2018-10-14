@@ -20,13 +20,14 @@ const styles = {
   },
 };
 
-function ButtonAppBar(props) {
+function ButtonAppBar(props,name) {
   const { classes } = props;
+  console.log(props.name)
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Link style={{ textDecoration: 'none', color: 'white'}} to='/'><Button color="inherit">Home</Button></Link>
+          <Link style={{ textDecoration: 'none', color: 'white'}} to={`/user/${props.name}`}><Button color="inherit">Home</Button></Link>
 
           <Typography variant="title" color="inherit" className={classes.grow}>
             Event Locator
@@ -45,6 +46,7 @@ function ButtonAppBar(props) {
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
+ 
 };
 
 export default withStyles(styles)(ButtonAppBar);

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 
 
-import AppBar from './AppBar';
-
+import ButtonAppBar from './AppBar';
+import Grid from './grid';
 
 
 console.log(window.location.href);
 
 
 class userInfo extends Component {
+  
   render() {
+    console.log(this.props.match.params.userName);
     return (
-      
       <div display= 'flex'>
-      <AppBar/>
-      {/* <Grid/> */}
+      <ButtonAppBar name={this.props.match.params.userName}/>
+      <Grid/>
       
       </div>
       
