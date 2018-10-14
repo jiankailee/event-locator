@@ -4,7 +4,6 @@ import Grid from './grid';
 
 import AppBar from './../AppBar';
 
-import Mapbox from './mapbox';
 
 
 

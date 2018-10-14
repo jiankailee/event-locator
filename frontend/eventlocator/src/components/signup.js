@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import AppBar from './AppBar';
+const mysql=require('mysql');
+
 
 const styles = theme => ({
 
@@ -48,15 +50,13 @@ class signup extends Component {
   signup = e => {
     const {userInfo}=this.state;
     //console.log(userInfo.signed);
-    if(userInfo.username!=""&&userInfo.password!=""&&userInfo.email!=""&&userInfo.address!=""){
-      //console.log(userInfo);
-      this.setState({userInfo:{...userInfo,signed:true}});
-      //console.log(userInfo.signed);
-    fetch(`/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
-    .catch(err=>console.log(err))
+    if(userInfo.username!==""&&userInfo.password!==""&&userInfo.email!==""&&userInfo.address!==""){
+    fetch(`http://proj309-tg-07.misc.iastate.edu:8080/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
+    this.setState({userInfo:{...userInfo,signed:true}});
+    //.catch(err=>console.log(err))
     }
-     //e.preventDefault();
-   // console.log(this.state);
+    //e.preventDefault();
+    //console.log(this.state);
     // let json = JSON.stringify(this.state);
     // console.log(json);
     

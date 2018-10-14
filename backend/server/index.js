@@ -4,13 +4,14 @@ const mysql=require('mysql');
 
 const app=express();
 
-const selectAll ='select * from event.usersInfo;';
+const selectAll ='SELECT * FROM usersInfo;';
+const allevents ='SELECT * FROM event';
 
 const connection=mysql.createConnection({
     host:'localhost',
-    user:'root',
-    password:'06121996jk',
-    database:'event'
+    user:'team1',
+    password:'1234Qwe!',
+    database:'309project'
 
 });
 connection.connect(err=>{
@@ -50,6 +51,18 @@ app.get('/usersInfo',(req,res)=>{
         }
      });
 });
-app.listen(4000,()=>{
-  console.log('Products server listening on port 4000');
+app.get('/events',(req,res)=>{
+     //res.send("in usersInfo");
+    connection.query(allevents,(err,results)=>{
+        if(err){
+            return res.send(err);
+        }else{
+            return res.json({
+                data:results
+            })
+        }
+     });
+});
+app.listen(8080, '0.0.0.0',()=>{
+  console.log('Server Listening on 5000');
 })

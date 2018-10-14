@@ -57,7 +57,7 @@ class login extends Component {
     this.getUsersInfo();
   }
   getUsersInfo=_=>{
-    fetch('/usersInfo')
+    fetch('http://proj309-tg-07.misc.iastate.edu:8080/usersInfo')
     .then(response=>response.json())
     .then(response=>this.setState({alluser: response.data}))
     // .then({data})=>{
@@ -73,13 +73,13 @@ class login extends Component {
     console.log(this.state);
     for(var i=0;i<this.state.alluser.length;i++){
       //console.log(this.state.alluser[i].username);
-      if(this.state.alluser[i].username==this.state.username&&
-        this.state.alluser[i].password==this.state.password){
+      if(this.state.alluser[i].username===this.state.username&&
+        this.state.alluser[i].password===this.state.password){
           this.setState({loggedIn:true});
         console.log("username exist");
       }
     }
-    if(this.state.loggedIn==false){
+    if(this.state.loggedIn===false){
       this.setState({loggedInError:true});
     }
     //let json = JSON.stringify(this.state);
