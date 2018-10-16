@@ -38,7 +38,7 @@ class SelectedListItem extends React.Component {
             onClick={event => this.handleListItemClick(event, 0)}
           >
            
-            <ListItemText primary="event1" />
+            <ListItemText primary="Map" />
           </ListItem>
           <ListItem
             button
@@ -46,7 +46,23 @@ class SelectedListItem extends React.Component {
             onClick={event => this.handleListItemClick(event, 1)}
           >
            
-            <ListItemText primary="event2" />
+            <ListItemText primary="My Info" />
+          </ListItem>
+          <ListItem
+            button
+            selected={this.state.selectedIndex === 2}
+            onClick={event => this.handleListItemClick(event, 1)}
+          >
+           
+            <ListItemText primary="Create Event" />
+          </ListItem>
+          <ListItem
+            button
+            selected={this.state.selectedIndex === 3}
+            onClick={event => this.handleListItemClick(event, 1)}
+          >
+           
+            <ListItemText primary="My Event List" />
           </ListItem>
         </List>
         

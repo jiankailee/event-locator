@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import List from './list';
-import Mapbox from './mapbox';
+//import Mapbox from './mapbox';
 
 const styles = theme => ({
   root: {
@@ -29,12 +29,12 @@ function CenteredGrid(props) {
         <Grid item xs={3}>
         
           <List/>
-         
+          
         </Grid>
         
         <Grid item xs={9}>
-         <Mapbox/>
-        
+         {/* <Mapbox/> */}
+         
       </Grid>
        
       </Grid>

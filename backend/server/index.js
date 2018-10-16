@@ -8,7 +8,7 @@ const selectAll ='SELECT * FROM usersInfo;';
 const allevents ='SELECT * FROM event';
 
 const connection=mysql.createConnection({
-    host:'localhost',
+    host:'proj309-tg-07.misc.iastate.edu',  //change to localhost in server
     user:'team1',
     password:'1234Qwe!',
     database:'309project'
@@ -64,5 +64,5 @@ app.get('/events',(req,res)=>{
      });
 });
 app.listen(8080, '0.0.0.0',()=>{
-  console.log('Server Listening on 5000');
+  console.log('Server Listening on 8080');
 })
