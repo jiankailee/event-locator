@@ -12,9 +12,10 @@ class Landing extends Component {
   render() {
     return (
       
-      <div display= 'flex'>
+      <div display= 'flex' height= '100%'>
       <AppBar/>
-      <Grid/>
+      <div height="100%"><Grid/></div>
+      
       
       </div>
       

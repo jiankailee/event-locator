@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -34,5 +35,13 @@
 
 .map_wrapper{
   width:100%;
+  height:100%;
+}
+
+.grid{
+  height:800px;
+}
+
+.Main{
   height:100%;
 }
