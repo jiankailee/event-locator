@@ -63,6 +63,10 @@ app.get('/events',(req,res)=>{
         }
      });
 });
+app.get('/user',(req,res)=>{
+    console.log(req.body)
+    // res.send("in user");
+});
 app.listen(8080, '0.0.0.0',()=>{
   console.log('Server Listening on 8080');
 })
