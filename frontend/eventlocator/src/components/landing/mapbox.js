@@ -63,7 +63,7 @@ class Mapbox extends Component {
         test_info.push(test1);
 
         return (
-            <div className="App">
+            <div className="map_wrapper">
                 <Map className="map" center={this.state} zoom={this.state.zoom}>
                     {/* <Map_search_bar/> */}
                     <TileLayer

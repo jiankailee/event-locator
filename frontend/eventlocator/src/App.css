@@ -28,6 +28,11 @@
 }
 
 .map{
-  height: 800px;
-  display: flex;
+  height: 100%;
+  width:100%;
+}
+
+.map_wrapper{
+  width:100%;
+  height:100%;
 }
