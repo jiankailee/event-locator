@@ -22,7 +22,7 @@ const styles = {
 
 function ButtonAppBar(props,name) {
   const { classes } = props;
-  console.log(props.name)
+  // console.log(props.name)
   return (
     <div className={classes.root}>
       <AppBar position="static">

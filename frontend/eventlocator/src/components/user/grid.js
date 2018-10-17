@@ -19,23 +19,24 @@ const styles = theme => ({
 
 function CenteredGrid(props) {
   const { classes } = props;
-
+// console.log("grid.js: "+props.name)
+// console.log(List.state);
   return (
    
     <div className={classes.root}>
     
       <Grid container >
         
-        <Grid item xs={3}>
+        {/* <Grid item xs={3}> */}
         
-          <List/>
+          {/* <List name={props.name} /> */}
           
-        </Grid>
+        {/* </Grid> */}
         
-        <Grid item xs={9}>
+        {/* <Grid item xs={9}> */}
          {/* <Mapbox/> */}
          
-      </Grid>
+      {/* </Grid> */}
        
       </Grid>
     </div>
