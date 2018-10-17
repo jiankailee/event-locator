@@ -36,7 +36,7 @@ function CenteredGrid(props) {
         </Grid>
         
         <Grid item xs={9}>
-         <Mapbox/>
+         
         
       </Grid>
        

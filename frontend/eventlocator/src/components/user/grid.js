@@ -28,7 +28,7 @@ function CenteredGrid(props) {
         
         <Grid item xs={3}>
         
-          <List/>
+          {/* <List/> */}
           
         </Grid>
         

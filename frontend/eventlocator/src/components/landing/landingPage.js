@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import Grid from './grid';
-
-import AppBar from './../AppBar';
 import Mapbox from './mapbox';
 
 
@@ -13,9 +11,9 @@ class Landing extends Component {
     return (
       
       <div display= 'flex' height= '100%'>
-      <AppBar/>
-      <div height="100%"><Grid/></div>
       
+      {/* <div height="100%"><Grid/></div> */}
+      <Mapbox/>
       
       </div>
       

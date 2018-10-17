@@ -32,10 +32,6 @@ function ButtonAppBar(props) {
           </Typography>
 
           <Link style={{ textDecoration: 'none', color: 'white' }} to="/login"><Button color="inherit">Login</Button></Link>
-          <Link style={{ textDecoration: 'none', color: 'white' }} to="/signup"><Button color="inherit">sign up</Button></Link>
-          {/* <Link style={{ textDecoration: 'none', color:'white' }} to='/'>Home</Link>
-          <Link style={{ textDecoration: 'none', color:'white' }} to="/login">Login</Link>
-          <Link style={{ textDecoration: 'none', color:'white' }} to="/signup">sign up</Link>  */}
         </Toolbar>
       </AppBar>
     </div>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 
-import ButtonAppBar from './AppBar';
+import ButtonAppBar from './../AppBar';
 import Grid from './grid';
-
+import '../../App.css';
 
 console.log(window.location.href);
 

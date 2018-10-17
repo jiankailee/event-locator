@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 //import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import AppBar from './AppBar';
 const mysql=require('mysql');
 
 
@@ -72,12 +71,11 @@ class signup extends Component {
     }
     return (
       <div>
-        <AppBar />
         <h2>Sign Up</h2>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
             id="username"
-            label="username"
+            label="Username"
             name="username"
             className={classes.textField}
             value={userInfo.username}
@@ -116,7 +114,7 @@ class signup extends Component {
           />
 
            <Button onClick={e=>this.signup(e)} variant="contained" className={classes.button}>
-          singup 
+          Sign Up
         </Button>
         {printSigned}
         </form>
