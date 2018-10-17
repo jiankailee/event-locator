@@ -9,14 +9,10 @@ import Mapbox from './mapbox';
 class Landing extends Component {
   render() {
     return (
-      
-      <div display= 'flex' height= '100%'>
-      
-      {/* <div height="100%"><Grid/></div> */}
-      <Mapbox/>
-      
+      <div>
+        {/* <div height="100%"><Grid/></div> */}
+        <Mapbox />
       </div>
-      
     );
   }
 }

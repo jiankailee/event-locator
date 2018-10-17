@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
+import './../App.css'
 
 const styles = {
   root: {
@@ -23,16 +24,18 @@ function ButtonAppBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Link style={{ textDecoration: 'none', color: 'white'}} to='/'><Button color="inherit">Home</Button></Link>
+      <AppBar position="static" style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px'}}>
+        {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
+        <Link style={{ textDecoration: 'none', color: 'white', float: 'left', padding: '5px'}} to='/'><Button color="inherit">Home</Button></Link>
 
-          <Typography variant="title" color="inherit" className={classes.grow}>
-            Event Locator
-          </Typography>
 
-          <Link style={{ textDecoration: 'none', color: 'white' }} to="/login"><Button color="inherit">Login</Button></Link>
-        </Toolbar>
+        <Link style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px'}} to='/'><Button color="inherit">Event Locator</Button></Link>
+        {/* <Typography variant="title" color="inherit" className={classes.grow} display="flex">
+          Event Locator
+          </Typography> */}
+
+        <Link style={{ textDecoration: 'none', color: 'white', padding: '5px'}} to="/login"><Button color="inherit">Login</Button></Link>
+        {/* </Toolbar> */}
       </AppBar>
     </div>
   );
