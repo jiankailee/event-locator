@@ -10,6 +10,8 @@ import userInfo from './components/user/userInfo';
 import AppBar from './components/AppBar';
 import Mapbox from './components/landing/mapbox';
 import SwitchComponent from './components/SwitchComponent'
+import SideBar from './components/landing/sidebar'
+import "./components/landing/sidebarStyles.css";
 
 // import Switch from 'react-router-dom/Switch';
 // import Route from 'react-router-dom/Route';
@@ -20,8 +22,8 @@ import SwitchComponent from './components/SwitchComponent'
 class App extends Component {
   render() {
     return (
-
       <div className="App">
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"}/>
         <AppBar/>
         <SwitchComponent/>
       </div>

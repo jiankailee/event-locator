@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-
+import SideBar from './sidebar'
 import Grid from './grid';
 import Mapbox from './mapbox';
-
+import '../../App.css'
 
 
 
 class Landing extends Component {
   render() {
     return (
-      <div>
-        <h1>Test</h1>
+      <div id="landing_map_wrapper">
         {/* <div height="100%"><Grid/></div> */}
         <Mapbox />
       </div>

@@ -36,8 +36,8 @@
 }
 
 .map_wrapper{
-  display:flex;
-  flex-grow:1;
+  width: 100%;
+  height:100%;
 }
 
 .SwitchComponent{
@@ -51,4 +51,9 @@
   text-decoration: none;
   flex-grow: 0;
   color:white;
+}
+
+#landing_map_wrapper{
+  width: 100%;
+  height: 100%;
 }

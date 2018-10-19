@@ -26,7 +26,7 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static" style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px'}}>
         {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
-        <Link style={{ textDecoration: 'none', color: 'white', float: 'left', padding: '5px'}} to='/'><Button color="inherit">Home</Button></Link>
+        <Button color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left'}}>Menu</Button>
 
 
         <Link style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px'}} to='/'><Button color="inherit">Event Locator</Button></Link>
