@@ -10,6 +10,7 @@ class Landing extends Component {
   render() {
     return (
       <div>
+        <h1>Test</h1>
         {/* <div height="100%"><Grid/></div> */}
         <Mapbox />
       </div>
