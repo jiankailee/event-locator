@@ -57,14 +57,14 @@ class login extends Component {
     this.getUsersInfo();
   }
   getUsersInfo=_=>{
-    fetch('localhost:8080/usersInfo') //http://proj309-tg-07.misc.iastate.edu:8080/usersInfo
+    fetch('http://localhost:8080/usersInfo') //http://proj309-tg-07.misc.iastate.edu:8080/usersInfo
     .then(response=>response.json())
     .then(response=>this.setState({alluser: response.data}))
     // .then({data})=>{
     //   console.log(data)
     // })
     .catch(err=>console.log(err))
-    //console.log(this.state.alluser);
+    // console.log(this.state.alluser);
   }
 
   submit = e => {
@@ -83,7 +83,8 @@ class login extends Component {
       this.setState({loggedInError:true});
     }
     //let json = JSON.stringify(this.state);
-    //console.log(json);
+    // console.log(json);
+    // console.log(this.state.alluser);
   }
 
 
