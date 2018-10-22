@@ -20,8 +20,6 @@ const styles = {
   },
 };
 
-
-
 function ButtonAppBar(props) {
   const { classes } = props;
   function test_func() {

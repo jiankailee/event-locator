@@ -26,11 +26,14 @@ class App extends Component {
   myCallback = () => {
     this.setState({box_open: !this.state.box_open});
   }
+  isMenuOpen = (state) => {
+    this.setState({box_open: state.isOpen});
+  }
   render() {
     return (
       <div className="App">
         <AppBar callbackFromParent={this.myCallback}/>
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open}/>
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={ this.isMenuOpen } width={'200px'}/>
         <SwitchComponent />
       </div>
     );
