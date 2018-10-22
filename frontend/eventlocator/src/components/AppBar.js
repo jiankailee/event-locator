@@ -20,21 +20,20 @@ const styles = {
   },
 };
 
+
+
 function ButtonAppBar(props) {
   const { classes } = props;
+  function test_func() {
+    props.callbackFromParent(true)
+  }
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px'}}>
+      <AppBar position="static" style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px' }}>
         {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
-        <Button color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left'}}>Menu</Button>
-
-
-        <Link style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px'}} to='/'><Button color="inherit">Event Locator</Button></Link>
-        {/* <Typography variant="title" color="inherit" className={classes.grow} display="flex">
-          Event Locator
-          </Typography> */}
-
-        <Link style={{ textDecoration: 'none', color: 'white', padding: '5px'}} to="/login"><Button color="inherit">Login</Button></Link>
+        <Button onClick={test_func} color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}>Menu</Button>
+        <Link style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
+        <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link>
         {/* </Toolbar> */}
       </AppBar>
     </div>

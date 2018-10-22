@@ -20,12 +20,18 @@ import "./components/landing/sidebarStyles.css";
 
 
 class App extends Component {
+  state = {
+    box_open: false,
+  }
+  myCallback = () => {
+    this.setState({box_open: !this.state.box_open});
+  }
   render() {
     return (
       <div className="App">
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"}/>
-        <AppBar/>
-        <SwitchComponent/>
+        <AppBar callbackFromParent={this.myCallback}/>
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open}/>
+        <SwitchComponent />
       </div>
     );
   }

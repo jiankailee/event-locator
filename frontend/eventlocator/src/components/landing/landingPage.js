@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SideBar from './sidebar'
 import Grid from './grid';
 import Mapbox from './mapbox';
 import '../../App.css'
