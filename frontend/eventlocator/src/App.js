@@ -22,6 +22,7 @@ import "./components/landing/sidebarStyles.css";
 class App extends Component {
   state = {
     box_open: false,
+    logged_in: false
   }
   myCallback = () => {
     this.setState({box_open: !this.state.box_open});
