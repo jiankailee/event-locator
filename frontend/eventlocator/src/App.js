@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import Main from './components/main';
+import Switch from 'react-router-dom/Switch';
+import Route from 'react-router-dom/Route';
+import login from './components/login';
+import signup from './components/signup';
+import Landing from './components/landing/landingPage';
+import userInfo from './components/user/userInfo';
+import AppBar from './components/AppBar';
+import Mapbox from './components/landing/mapbox';
+import SwitchComponent from './components/SwitchComponent'
+import SideBar from './components/landing/sidebar'
+import "./components/landing/sidebarStyles.css";
 
 // import Switch from 'react-router-dom/Switch';
 // import Route from 'react-router-dom/Route';
@@ -10,27 +20,22 @@ import Main from './components/main';
 
 
 class App extends Component {
+  state = {
+    box_open: false,
+  }
+  myCallback = () => {
+    this.setState({box_open: !this.state.box_open});
+  }
+  isMenuOpen = (state) => {
+    this.setState({box_open: state.isOpen});
+  }
   render() {
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <h1 className="App-title">Welcome to React</h1>
-      //   </header>
-      //   <p className="App-intro">
-      //     To get started, edit <code>src/App.js</code> and save to reload.
-      //   </p>
-      // </div>
-      
       <div className="App">
-      {/* <AppBar/> */}
-
-        {/* <Link to='/'>Home</Link>
-        <Link to="/login">Login</Link>
-      <Link to="/signup">sign up</Link> */}
-      <Main/>
+        <AppBar callbackFromParent={this.myCallback}/>
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={ this.isMenuOpen } width={'200px'}/>
+        <SwitchComponent />
       </div>
-      
     );
   }
 }

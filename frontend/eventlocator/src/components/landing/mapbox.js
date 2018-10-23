@@ -1,5 +1,4 @@
 import React, { createRef, Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../../App.css';
@@ -57,20 +56,19 @@ class Mapbox extends Component {
 
     render() {
         console.log(this.state.allLocation)
-        var test_info = [['Parks Library', [42.0281, -93.6488]], ['Memorial Union', [42.0237, -93.6459]]];
+        // var test_info = [['Parks Library', [42.0281, -93.6488]], ['Memorial Union', [42.0237, -93.6459]]];
 
-        var test1 = ['Coover Hall', [42.0284, -93.6509]];
-        test_info.push(test1);
+        // var test1 = ['Coover Hall', [42.0284, -93.6509]];
+        // test_info.push(test1);
 
         return (
-            <div className="App">
+            <div className="map_wrapper">
                 <Map className="map" center={this.state} zoom={this.state.zoom}>
                     {/* <Map_search_bar/> */}
                     <TileLayer
                         attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                         url= "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-
                     <Example components={this.state.allLocation}/>
                 </Map>
             </div >

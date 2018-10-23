@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 //import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import AppBar from './AppBar';
 import { userInfo } from 'os';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
@@ -57,14 +56,14 @@ class login extends Component {
     this.getUsersInfo();
   }
   getUsersInfo=_=>{
-    fetch('http://proj309-tg-07.misc.iastate.edu:8080/usersInfo')
+    fetch('http://localhost:8080/usersInfo') //http://proj309-tg-07.misc.iastate.edu:8080/usersInfo
     .then(response=>response.json())
     .then(response=>this.setState({alluser: response.data}))
     // .then({data})=>{
     //   console.log(data)
     // })
     .catch(err=>console.log(err))
-    //console.log(this.state.alluser);
+    // console.log(this.state.alluser);
   }
 
   submit = e => {
@@ -83,7 +82,8 @@ class login extends Component {
       this.setState({loggedInError:true});
     }
     //let json = JSON.stringify(this.state);
-    //console.log(json);
+    // console.log(json);
+    // console.log(this.state.alluser);
   }
 
 
@@ -102,7 +102,6 @@ class login extends Component {
     }
     return (
       <div>
-        <AppBar />
         <h2>Log in</h2>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
@@ -129,6 +128,7 @@ class login extends Component {
         </Button>
         {printError}
         </form>
+        <Link  to='/signup'>Don't have an account? Sign up here.</Link>
       </div>
     );
   }
