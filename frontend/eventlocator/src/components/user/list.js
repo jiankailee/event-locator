@@ -8,6 +8,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
+import { Link } from 'react-router-dom';
+import '../../App.css';
 
 const styles = theme => ({
   root: {
@@ -18,17 +20,30 @@ const styles = theme => ({
 });
 
 class SelectedListItem extends React.Component {
+  constructor(props){
+    super(props);
+    
+  }
   state = {
     selectedIndex: 1,
   };
+  
 
   handleListItemClick = (event, index) => {
     this.setState({ selectedIndex: index });
+    // if(this.state.selectedIndex==0){
+    //   console.log(true);
+      
+    // }
   };
-
+  
   render() {
     const { classes } = this.props;
-
+    // console.log("list: "+this.props.name)
+    let printinfo;
+    if(this.state.selectedIndex==0){
+      printinfo=<div>hello</div>
+    }
     return (
       <div className={classes.root}>
         <List component="nav">
@@ -38,18 +53,36 @@ class SelectedListItem extends React.Component {
             onClick={event => this.handleListItemClick(event, 0)}
           >
            
-            <ListItemText primary="event1" />
+           <ListItemText primary="Map" />
           </ListItem>
+          
           <ListItem
             button
             selected={this.state.selectedIndex === 1}
             onClick={event => this.handleListItemClick(event, 1)}
           >
            
-            <ListItemText primary="event2" />
+           <ListItemText primary="My Info" />
+          </ListItem>
+          
+          <ListItem
+            button
+            selected={this.state.selectedIndex === 2}
+            onClick={event => this.handleListItemClick(event, 2)}
+          >
+           
+            <ListItemText primary="Create Event" />
+          </ListItem>
+          <ListItem
+            button
+            selected={this.state.selectedIndex === 3}
+            onClick={event => this.handleListItemClick(event, 3)}
+          >
+           
+            <ListItemText primary="My Event List" />
           </ListItem>
         </List>
-        
+        {printinfo}
        
       </div>
     );

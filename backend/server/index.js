@@ -8,7 +8,7 @@ const selectAll ='SELECT * FROM usersInfo;';
 const allevents ='SELECT * FROM event';
 
 const connection=mysql.createConnection({
-    host:'localhost',
+    host:'proj309-tg-07.misc.iastate.edu',  //change to localhost in server
     user:'team1',
     password:'1234Qwe!',
     database:'309project'
@@ -63,6 +63,38 @@ app.get('/events',(req,res)=>{
         }
      });
 });
+let username="";
+app.get('/user/find',(req,res)=>{
+    console.log(req.query)
+    // res.send("in user");
+    const {name}=req.query
+    console.log(name)
+    username=name
+    // res.send(name)
+    const query= `SELECT * FROM usersInfo WHERE username='${name}'`;
+    connection.query(query,(err,results)=>{
+        if(err){
+            return res.send(err);
+        }else{
+            return res.json({
+                data:results
+            })
+        }
+    })
+});
+app.get('/user',(req,res)=>{
+    const query= `SELECT * FROM usersInfo WHERE username='${username}'`;
+   connection.query(query,(err,results)=>{
+       if(err){
+           return res.send(err);
+       }else{
+           return res.json({
+               data:results
+           })
+       }
+    });
+});
+
 app.listen(8080, '0.0.0.0',()=>{
-  console.log('Server Listening on 5000');
+  console.log('Server Listening on 8080');
 })

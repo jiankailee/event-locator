@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css'
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter height='100%'>
         <App />
     </BrowserRouter>
     , document.getElementById('root'));

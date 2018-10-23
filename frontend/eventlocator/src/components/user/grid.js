@@ -4,41 +4,39 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import List from './list';
-import Mapbox from './mapbox';
-import '../../App.css';
+//import Mapbox from './mapbox';
 
 const styles = theme => ({
   root: {
     display: 'flex',
-    height: '100%',
   },
   paper: {
-    padding: "0px",
+    padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: '100%',
   },
 });
 
 function CenteredGrid(props) {
   const { classes } = props;
-
+// console.log("grid.js: "+props.name)
+// console.log(List.state);
   return (
    
     <div className={classes.root}>
     
       <Grid container >
         
-        <Grid item xs={3}>
+        {/* <Grid item xs={3}> */}
         
-          <List/>
+          {/* <List name={props.name} /> */}
+          
+        {/* </Grid> */}
+        
+        {/* <Grid item xs={9}> */}
+         {/* <Mapbox/> */}
          
-        </Grid>
-        
-        <Grid item xs={9}>
-         
-        
-      </Grid>
+      {/* </Grid> */}
        
       </Grid>
     </div>

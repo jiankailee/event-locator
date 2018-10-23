@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './App.css';
-import Login from './login';
-import AppBar from './AppBar';
-import Map from './Map';
+// import React, { Component } from 'react';
+// import './App.css';
+// import Login from './login';
+// import AppBar from './AppBar';
+// import Map from './Map';
 
 // var mysql=require('mysql');
 
@@ -13,6 +13,10 @@ import Map from './Map';
 //   database:'event'
 // });
 // connection.connect();
+
+//var express= require('express');
+
+
 class App extends Component {
   state={
     products:[],
