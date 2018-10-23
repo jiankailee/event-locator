@@ -14,8 +14,6 @@ class userInfo extends Component {
     console.log(this.props.match.params.userName);
     return (
       <div display= 'flex'>
-      <ButtonAppBar name={this.props.match.params.userName}/>
-      <Grid/>
       
       </div>
       
