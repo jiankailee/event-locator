@@ -9,8 +9,14 @@ reqtext = r.text
 soup = BeautifulSoup(reqtext, 'html.parser')
 
 #print(soup.prettify())
-tag = soup.find(id="map")
-latitude = tag['data-latitude']
-longitude = tag['data-longitude']
+title = soup.title.string
+if title.endswith(' - events'):
+    title = title[:-9]
+print title
+mapinfo = soup.find(id="map")
+latitude = mapinfo['data-latitude']
+longitude = mapinfo['data-longitude']
 print latitude
 print longitude
+#mapaddr = soup.find(div class="mapaddress")
+#print mapaddr
