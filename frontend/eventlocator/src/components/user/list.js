@@ -9,6 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 const styles = theme => ({
   root: {

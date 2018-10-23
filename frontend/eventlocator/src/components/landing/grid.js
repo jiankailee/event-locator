@@ -10,11 +10,13 @@ import '../../App.css';
 const styles = theme => ({
   root: {
     display: 'flex',
+    height: '100%',
   },
   paper: {
-    padding: theme.spacing.unit * 2,
+    padding: "0px",
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    height: '100%',
   },
 });
 
@@ -34,7 +36,7 @@ function CenteredGrid(props) {
         </Grid>
         
         <Grid item xs={9}>
-        <Mapbox/>
+         
         
       </Grid>
        

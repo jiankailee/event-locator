@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 //import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import AppBar from './AppBar';
 import { userInfo } from 'os';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
@@ -103,7 +102,6 @@ class login extends Component {
     }
     return (
       <div>
-        <AppBar />
         <h2>Log in</h2>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
@@ -130,6 +128,7 @@ class login extends Component {
         </Button>
         {printError}
         </form>
+        <Link  to='/signup'>Don't have an account? Sign up here.</Link>
       </div>
     );
   }

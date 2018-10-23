@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 
-import ButtonAppBar from './AppBar';
+import ButtonAppBar from './../AppBar';
 import Grid from './grid';
 import CreateEvent from './createEvent';
 
+import '../../App.css';
 
 console.log(window.location.href);
 
@@ -61,8 +62,6 @@ class userInfo extends Component {
     }
     return (
       <div display= 'flex'>
-      <ButtonAppBar name={this.props.match.params.userName}/>
-      {/* <Grid name={this.props.match.params.userName}/> */}
       
       <button onClick={event => this.handleListItemClick(event, 0)}>
       map
