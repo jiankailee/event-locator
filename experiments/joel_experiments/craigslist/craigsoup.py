@@ -18,5 +18,5 @@ latitude = mapinfo['data-latitude']
 longitude = mapinfo['data-longitude']
 print latitude
 print longitude
-#mapaddr = soup.find(div class="mapaddress")
+#mapaddr = soup.find(class="mapaddress")
 #print mapaddr
