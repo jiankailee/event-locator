@@ -14,19 +14,22 @@ import userInfo from './user/userInfo';
 // import signup from './components/signup';
 
 class SwitchComponent extends Component {
-  myCallback = () => {
+  constructor(props) {
+    super(props);
+  }
+  myCallback = (log_value) => {
     // this.setState({box_open: !this.state.box_open});
-    console.log("WE DID IT")
+    this.props.callbackFromParent(log_value);
   }
   render() {
     return (
-        <Switch callbackFromParent={this.myCallback}>
-          <Route exact path="/" component={Landing} />
-          <Route path="/signup" component={signup} />
-          <Route path="/login"
-            render={(props) => <Login {...props} callbackFromParent={this.myCallback} />}/>
-          <Route path="/user/:userName" component={userInfo} />
-        </Switch>
+      <Switch callbackFromParent={this.myCallback}>
+        <Route exact path="/" component={Landing} />
+        <Route path="/signup" component={signup} />
+        <Route path="/login"
+          render={(props) => <Login {...props} callbackFromParent={this.myCallback} />} />
+        <Route path="/user/:userName" component={userInfo} />
+      </Switch>
     );
   }
 }

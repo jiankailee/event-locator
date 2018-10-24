@@ -24,6 +24,9 @@ class App extends Component {
     box_open: false,
     logged_in: false
   }
+  setLogin = (log_value) =>{
+    this.setState({logged_in: log_value})
+  }
   myCallback = () => {
     this.setState({box_open: !this.state.box_open});
   }
@@ -33,9 +36,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppBar callbackFromParent={this.myCallback}/>
+        <AppBar callbackFromParent={this.myCallback} logged_in={this.state.logged_in} logged_out={this.setLogin}/>
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={ this.isMenuOpen } width={'200px'}/>
-        <SwitchComponent />
+        <SwitchComponent callbackFromParent={this.setLogin}/>
       </div>
     );
   }

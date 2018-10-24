@@ -67,7 +67,7 @@ class login extends Component {
   }
 
   passLogon = () => {
-    this.props.callbackFromParent()
+    this.props.callbackFromParent(true)
   }
 
   submit = e => {
@@ -79,7 +79,6 @@ class login extends Component {
         this.state.alluser[i].password===this.state.password){
           this.setState({loggedIn:true});
         console.log("username exist");
-        console.log(this.state.loggedIn);
         this.passLogon();
       }
     }
@@ -95,7 +94,6 @@ class login extends Component {
 
   render() {
     const { classes } = this.props;
-    //console.log(this.state.loggedIn);
     let printError;
     //const { from } = this.props.location.state || { from: { pathname: "/" } };
     if (this.state.loggedIn) {

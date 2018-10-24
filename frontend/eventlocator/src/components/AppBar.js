@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -20,22 +20,38 @@ const styles = {
   },
 };
 
-function ButtonAppBar(props) {
-  const { classes } = props;
-  function test_func() {
-    props.callbackFromParent()
+class ButtonAppBar extends Component {
+  constructor(props) {
+    super(props);
   }
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px' }}>
-        {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
-        <Button onClick={test_func} color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}>Menu</Button>
-        <Link style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
-        <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link>
-        {/* </Toolbar> */}
-      </AppBar>
-    </div>
-  );
+  test_func = () => {
+    this.props.callbackFromParent()
+  }
+  logOut = () => {
+    this.props.logged_out(false)
+  }
+  render() {
+    const { classes } = this.props;
+    let log_button;
+    if (!this.props.logged_in) {
+      log_button = <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link>
+    }
+    else {
+      log_button = <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button onClick={this.logOut} color="inherit">Log Out</Button></Link>
+    }
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px' }}>
+          {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
+          <Button onClick={this.test_func} color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}>Menu</Button>
+          <Link style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
+          {/* <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link> */}
+          {log_button}
+          {/* </Toolbar> */}
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 ButtonAppBar.propTypes = {
