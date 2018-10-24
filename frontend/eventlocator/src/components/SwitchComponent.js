@@ -18,7 +18,6 @@ class SwitchComponent extends Component {
     super(props);
   }
   myCallback = (log_value) => {
-    // this.setState({box_open: !this.state.box_open});
     this.props.callbackFromParent(log_value);
   }
   render() {

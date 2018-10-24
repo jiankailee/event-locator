@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar callbackFromParent={this.myCallback} logged_in={this.state.logged_in} logged_out={this.setLogin}/>
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={ this.isMenuOpen } width={'200px'}/>
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={ this.isMenuOpen } width={'200px'} logged_in={this.state.logged_in}/>
         <SwitchComponent callbackFromParent={this.setLogin}/>
       </div>
     );
