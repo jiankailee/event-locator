@@ -1,23 +1,19 @@
 from bs4 import BeautifulSoup
 import requests
+import multiprocessing
 
-r = requests.get('https://ames.craigslist.org/search/eve?postal=50014&search_distance=200&sale_date=2018-10-24')
+r = requests.get('https://ames.craigslist.org/search/eve?search_distance=200&postal=50014&sale_date=2018-10-30')
 print r.status_code
 reqtext = r.text
-#print reqtext
 
 soup = BeautifulSoup(reqtext, 'html.parser')
 
 events = soup.find_all('p')
 
-#events = events['result-title hdrlnk']
 for event in events:
-    print event
-    #try:
-    #    print event['result-title hdrlnk']
-    #except:
-    #    print "Nothing of value"
-#print(soup.prettify())
+    print event.a['href']
+
+
 #title = soup.title.string
 #if title.endswith(' - events'):
 #    title = title[:-9]
