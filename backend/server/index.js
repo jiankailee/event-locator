@@ -7,6 +7,10 @@ const app=express();
 const selectAll ='SELECT * FROM usersInfo;';
 const allevents ='SELECT * FROM event';
 
+var server = require('http').createServer(express);
+var io = require('socket.io')(server);
+server.listen(3000);
+
 const connection=mysql.createConnection({
     host:'proj309-tg-07.misc.iastate.edu',  //change to localhost in server
     user:'team1',
