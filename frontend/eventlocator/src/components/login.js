@@ -7,6 +7,9 @@ import Button from '@material-ui/core/Button';
 import { userInfo } from 'os';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
+var server = require('http').createServer();
+var io = require('socket.io')(server);
+
 const styles = theme => ({
 
   container: {
@@ -72,7 +75,7 @@ class login extends Component {
 
   submit = e => {
     e.preventDefault();
-    
+    console.log(this.state.alluser)
     for(var i=0;i<this.state.alluser.length;i++){
       //console.log(this.state.alluser[i].username);
       if(this.state.alluser[i].username===this.state.username&&
