@@ -1,16 +1,15 @@
 from bs4 import BeautifulSoup
 import requests
 from multiprocessing import Process
+import mysql.connector
+from mysql.connector import Error
 
 def main():
     r = requests.get('https://ames.craigslist.org/search/eve?search_distance=200&postal=50014&sale_date=2018-10-30')
     print r.status_code
     reqtext = r.text
-
     soup = BeautifulSoup(reqtext, 'html.parser')
-
     events = soup.find_all('p')
-
     for event in events:
         link = event.a['href']
         print link
@@ -21,9 +20,7 @@ def main():
 def scrap(link):
     r = requests.get(link)
     req = r.text
-    
     soupp = BeautifulSoup(req, 'html.parser')
-
     title = soupp.title.string
     if title.endswith(' - events'):
         title = title[:-9]
@@ -33,6 +30,17 @@ def scrap(link):
     longitude = mapinfo['data-longitude']
     print latitude
     print longitude
+    try:
+        conn = mysql.connector.connect(host='localhost', database='309project', user='team1', password='1234Qwe!')
+        cur = conn.cursor()
+        query = "INSET INTO event (eventName, longitude, latitude) VALUES (\'" + title + "\', \'" + longitude + "\', \'" + latitude + "\');"
+        cur.execute(query)
+        cur.close()
+        #conn.close()
+    except Error as e:
+        print(e)
+    finally:
+        conn.close()
     #mapaddr = soupp.find(class="mapaddress")
     #print mapaddr
 
