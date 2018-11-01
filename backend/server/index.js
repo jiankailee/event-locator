@@ -9,7 +9,8 @@ const selectAll ='SELECT * FROM usersInfo;';
 const allevents ='SELECT * FROM event';
 
 var server = require('http').createServer(express);
-var io = require('socket.io')(server);
+var io = require('socket.io')(server, { origins: '*:*'});
+io.origins('*:*')
 
 io.on('connection', function(socket){
     console.log('connected');

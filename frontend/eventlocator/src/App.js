@@ -22,23 +22,29 @@ import socketIOClient from 'socket.io-client'
 class App extends Component {
   state = {
     box_open: false,
-    logged_in: false
+    logged_in: false,
+    endpoint: "http://192.168.0.26:8080"
   }
-  setLogin = (log_value) =>{
-    this.setState({logged_in: log_value})
+  setLogin = (log_value) => {
+    this.setState({ logged_in: log_value })
   }
   myCallback = () => {
-    this.setState({box_open: !this.state.box_open});
+    this.setState({ box_open: !this.state.box_open });
   }
   isMenuOpen = (state) => {
-    this.setState({box_open: state.isOpen});
+    this.setState({ box_open: state.isOpen });
   }
   render() {
+    console.log(this.state.endpoint)
+    const socket = socketIOClient(this.state.endpoint);
+    socket.on('connection', function(socket){
+      console.log('connected');
+    });
     return (
       <div className="App">
-        <AppBar callbackFromParent={this.myCallback} logged_in={this.state.logged_in} logged_out={this.setLogin}/>
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={ this.isMenuOpen } width={'200px'} logged_in={this.state.logged_in}/>
-        <SwitchComponent callbackFromParent={this.setLogin}/>
+        <AppBar callbackFromParent={this.myCallback} logged_in={this.state.logged_in} logged_out={this.setLogin} />
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={this.isMenuOpen} width={'200px'} logged_in={this.state.logged_in} />
+        <SwitchComponent callbackFromParent={this.setLogin} />
       </div>
     );
   }
