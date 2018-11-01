@@ -1,11 +1,21 @@
 const express=require('express');
 const cors= require('cors');
 const mysql=require('mysql');
-
+const socketIO = require('socket.io')
 const app=express();
+const port = 8080;
 
 const selectAll ='SELECT * FROM usersInfo;';
 const allevents ='SELECT * FROM event';
+
+var server = require('http').createServer(express);
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+    console.log('connected');
+  });
+
+  server.listen(port, () => console.log(`Listening on port ${port}`))
 
 const connection=mysql.createConnection({
     host:'proj309-tg-07.misc.iastate.edu',  //change to localhost in server

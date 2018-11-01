@@ -72,7 +72,7 @@ class login extends Component {
 
   submit = e => {
     e.preventDefault();
-    
+    console.log(this.state.alluser)
     for(var i=0;i<this.state.alluser.length;i++){
       //console.log(this.state.alluser[i].username);
       if(this.state.alluser[i].username===this.state.username&&
