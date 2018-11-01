@@ -8,11 +8,22 @@ const app=express()
 const server=http.createServer(app)
 const io=socketIo(server)
 app.get('/',(req,res)=>{
-    res.send('go to/usersInfo to see user');
+    res.send('hello');
 });
-
-server.listen(3000,()=>{
-    console.log(3000)
+// app.use(express.static(__dirname+'/public'))
+io.on('connection',socket=>{
+    socket.on('message',body=>{
+        socket.broadcast.emit('message',{
+            body,
+            from:socket.id.slice(5)
+        })
+       
+        console.log("body: "+body)
+    })
+    console.log('a user connected')
+})
+server.listen(8080,()=>{
+    console.log(8080)
 })
 
 
