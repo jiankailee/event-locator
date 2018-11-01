@@ -12,12 +12,12 @@ import Mapbox from './components/landing/mapbox';
 import SwitchComponent from './components/SwitchComponent'
 import SideBar from './components/landing/sidebar'
 import "./components/landing/sidebarStyles.css";
+import socketIOClient from 'socket.io-client'
 
 // import Switch from 'react-router-dom/Switch';
 // import Route from 'react-router-dom/Route';
 // import login from './components/login';
 // import signup from './components/signup';
-
 
 class App extends Component {
   state = {

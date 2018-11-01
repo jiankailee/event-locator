@@ -7,9 +7,6 @@ import Button from '@material-ui/core/Button';
 import { userInfo } from 'os';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
-var server = require('http').createServer();
-var io = require('socket.io')(server);
-
 const styles = theme => ({
 
   container: {
