@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
+import './../App.css'
 
 const styles = {
   root: {
@@ -19,27 +20,38 @@ const styles = {
   },
 };
 
-function ButtonAppBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Link style={{ textDecoration: 'none', color: 'white'}} to='/'><Button color="inherit">Home</Button></Link>
-
-          <Typography variant="title" color="inherit" className={classes.grow}>
-            Event Locator
-          </Typography>
-
-          <Link style={{ textDecoration: 'none', color: 'white' }} to="/login"><Button color="inherit">Login</Button></Link>
-          <Link style={{ textDecoration: 'none', color: 'white' }} to="/signup"><Button color="inherit">sign up</Button></Link>
-          {/* <Link style={{ textDecoration: 'none', color:'white' }} to='/'>Home</Link>
-          <Link style={{ textDecoration: 'none', color:'white' }} to="/login">Login</Link>
-          <Link style={{ textDecoration: 'none', color:'white' }} to="/signup">sign up</Link>  */}
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+class ButtonAppBar extends Component {
+  constructor(props) {
+    super(props);
+  }
+  test_func = () => {
+    this.props.callbackFromParent()
+  }
+  logOut = () => {
+    this.props.logged_out(false)
+  }
+  render() {
+    const { classes } = this.props;
+    let log_button;
+    if (!this.props.logged_in) {
+      log_button = <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link>
+    }
+    else {
+      log_button = <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button onClick={this.logOut} color="inherit">Log Out</Button></Link>
+    }
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px' }}>
+          {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
+          <Button onClick={this.test_func} color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}>Menu</Button>
+          <Link style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
+          {/* <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link> */}
+          {log_button}
+          {/* </Toolbar> */}
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 ButtonAppBar.propTypes = {
