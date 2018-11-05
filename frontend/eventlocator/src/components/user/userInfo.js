@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import ButtonAppBar from './../AppBar';
 import Grid from './grid';
 import CreateEvent from './createEvent';
-
+import Chat from './chat';
 import '../../App.css';
 
 console.log(window.location.href);
@@ -76,7 +76,7 @@ class userInfo extends Component {
       My Event List
       </button>
       {display}
-      
+      <Chat name={this.state.username}/>
       </div>
      
     );

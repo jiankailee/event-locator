@@ -4,19 +4,21 @@ const mysql=require('mysql');
 const socketIO = require('socket.io')
 const app=express();
 const port = 8080;
-
+const http=require('http')
 const selectAll ='SELECT * FROM usersInfo;';
 const allevents ='SELECT * FROM event';
 
-var server = require('http').createServer(express);
-var io = require('socket.io')(server, { origins: '*:*'});
-io.origins('*:*')
+// var server = require('http').createServer(express);
+// var io = require('socket.io')(server, { origins: '*:*'});
+// io.origins('*:*')
 
-io.on('connection', function(socket){
-    console.log('connected');
-  });
+// io.on('connection', function(socket){
+//     console.log('connected');
+//   });
 
-  server.listen(port, () => console.log(`Listening on port ${port}`))
+//   server.listen(port, () => console.log(`Listening on port ${port}`))
+const server=http.createServer(app)
+const io=socketIO(server)
 
 const connection=mysql.createConnection({
     host:'proj309-tg-07.misc.iastate.edu',  //change to localhost in server
@@ -105,7 +107,18 @@ app.get('/user',(req,res)=>{
        }
     });
 });
-
-app.listen(8080, '0.0.0.0',()=>{
+io.on('connection',socket=>{
+    socket.on('message',(body,name)=>{
+        socket.broadcast.emit('message',{
+            body,
+            from:name
+            
+        })
+        console.log(name)
+        console.log("body: "+body)
+    })
+    console.log('a user connected')
+})
+server.listen(8080, '0.0.0.0',()=>{
   console.log('Server Listening on 8080');
 })
