@@ -67,7 +67,8 @@ class login extends Component {
   }
 
   passLogon = () => {
-    this.props.callbackFromParent(true)
+    this.props.callbackFromParent(true, this.state.username)
+    console.log("User: " + this.state.username)
   }
 
   submit = e => {
@@ -97,7 +98,7 @@ class login extends Component {
     let printError;
     //const { from } = this.props.location.state || { from: { pathname: "/" } };
     if (this.state.loggedIn) {
-      return <Redirect to={`/user/${this.state.username}`} />;
+      return <Redirect to={{pathname: `/user/${this.state.username}`, state: {selectedIndex: 1}}} />;
       //return <Redirect to="/user" />;
     }
     if(this.state.loggedInError){

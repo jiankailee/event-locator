@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-
-
-import ButtonAppBar from './../AppBar';
-import Grid from './grid';
 import CreateEvent from './createEvent';
 import Chat from './chat';
 import '../../App.css';
@@ -14,9 +10,10 @@ class userInfo extends Component {
   constructor(props){
     super(props);
     // name : this.props.match.params.userName;
+    console.log(props)
   }
   state = {
-    selectedIndex: 0,
+    selectedIndex: this.props.location.state.selectedIndex,
     username:"",
     password:"",
     address:"",
@@ -24,6 +21,7 @@ class userInfo extends Component {
   };
   componentDidMount(){
     this.getUser();
+    console.log(this.state.selectedIndex);
     // this.get();
   }
   getUser=_=>{
@@ -39,11 +37,12 @@ class userInfo extends Component {
   
    handleListItemClick = (event, index) => {
     this.setState({ selectedIndex: index });
-    console.log(this.state.selectedIndex)
+    //console.log(this.state.selectedIndex)
+    console.log(this.state.selectedIndex);
   };
   render() {
-    console.log(this.props.match.params.userName)
-    console.log(this.state.username+" "+this.state.password+" "+this.state.address+" "+this.state.email)
+    //console.log(this.props.match.params.userName)
+    //console.log(this.state.username+" "+this.state.password+" "+this.state.address+" "+this.state.email)
     let display
     if(this.state.selectedIndex==0){
       display=<div>Will be a big map on here</div>
@@ -63,7 +62,7 @@ class userInfo extends Component {
     return (
       <div display= 'flex'>
       
-      <button onClick={event => this.handleListItemClick(event, 0)}>
+      {/* <button onClick={event => this.handleListItemClick(event, 0)}>
       map
       </button>
       <button onClick={event => this.handleListItemClick(event, 1)}>
@@ -74,7 +73,7 @@ class userInfo extends Component {
       </button>
       <button onClick={event => this.handleListItemClick(event, 3)}>
       My Event List
-      </button>
+      </button> */}
       {display}
       <Chat name={this.state.username}/>
       </div>

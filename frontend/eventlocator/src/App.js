@@ -23,10 +23,11 @@ class App extends Component {
   state = {
     box_open: false,
     logged_in: false,
+    username: null,
     endpoint: "http://192.168.0.26:8080"
   }
-  setLogin = (log_value) => {
-    this.setState({ logged_in: log_value })
+  setLogin = (log_value, username_val) => {
+    this.setState({ logged_in: log_value, username: username_val})
   }
   myCallback = () => {
     this.setState({ box_open: !this.state.box_open });
@@ -43,7 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar callbackFromParent={this.myCallback} logged_in={this.state.logged_in} logged_out={this.setLogin} />
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={this.isMenuOpen} width={'200px'} logged_in={this.state.logged_in} />
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={this.isMenuOpen} width={'200px'} logged_in={this.state.logged_in} username={this.state.username}/>
         <SwitchComponent callbackFromParent={this.setLogin} />
       </div>
     );
