@@ -35,16 +35,16 @@ class  CreateEvent extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
+  }
+    state = {
       selectedIndex: 0,
       username:"",
       address:"",
       eventname:"",
       time:""
     };
-    this.onChange = this.change.bind(this);
-    this.onSubmit = this.submit.bind(this);
-  }
+    //onChange = change.bind(this);
+    //onSubmit = submit.bind(this);
 
   change = e => {
     this.setState({
@@ -58,7 +58,7 @@ class  CreateEvent extends Component {
   }
 
   getUser=_=>{
-    fetch(`http://proj309-tg-07.misc.iastate.edu/user/find?name=${this.props.match.params.userName}`)
+    fetch(`http://proj309-tg-07.misc.iastate.edu/user/find?name=test') //{this.props.match.params.userName}`)
     .then(response=>response.json())
     .then(response=>this.setState({username: response.data[0].username}))
     .catch(err=>console.log(err))
@@ -69,10 +69,18 @@ class  CreateEvent extends Component {
     console.log(this.state.selectedIndex)
   };
 
+  submit = e => {
+    e.preventDefault();
+    console.log(this.state.username);
+    console.log("username exist");
+
+  }
  
 
   
   render() {
+  //console.log(this.props.match.params.userName)
+
    const { classes } = this.props;
 
     return (
@@ -116,4 +124,4 @@ class  CreateEvent extends Component {
   }
 }
 
-export default CreateEvent;
+export default withStyles(styles)(CreateEvent);
