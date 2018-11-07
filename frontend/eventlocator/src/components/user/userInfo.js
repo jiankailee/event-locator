@@ -13,7 +13,7 @@ class userInfo extends Component {
     console.log(props)
   }
   state = {
-    selectedIndex: this.props.location.state.selectedIndex,
+    selectedIndex: 1,
     updatePage: 0,
     username:"",
     password:"",
