@@ -14,15 +14,23 @@ class userInfo extends Component {
   }
   state = {
     selectedIndex: this.props.location.state.selectedIndex,
+    updatePage: 0,
     username:"",
     password:"",
     address:"",
     email:""
   };
+  componentWillReceiveProps(nextProps){
+    this.state.selectedIndex = nextProps.location.state.selectedIndex;
+    console.log(nextProps)
+  }
   componentDidMount(){
     this.getUser();
-    console.log(this.state.selectedIndex);
     // this.get();
+  }
+  reRender(){
+    console.log(this.state.selectedIndex);
+    
   }
   getUser=_=>{
     // console.log(this.props.name)
