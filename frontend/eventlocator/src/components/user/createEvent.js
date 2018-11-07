@@ -37,14 +37,17 @@ class  CreateEvent extends Component {
     super(props);
   }
     state = {
+      eventInfo:{
       selectedIndex: 0,
       latitude:"",
       longitude:"",
       eventname:"",
-      time:""
+      time:"",
+      signed: false
+     }
     };
-    //onChange = change.bind(this);
-    //onSubmit = submit.bind(this);
+    //onChange = this.change.bind(this);
+    //onSubmit = this.submit.bind(this);
 
   change = e => {
     this.setState({
@@ -70,11 +73,14 @@ class  CreateEvent extends Component {
   };
 
   submit = e => {
-     if(userInfo.username!==""&&userInfo.password!==""&&userInfo.email!==""&&userInfo.address!==""){
-    	fetch(`http://proj309-tg-07.misc.iastate.edu:8080/events/add?eventname=${eventInfo.username}&longitude=${eventInfo.longitude}&latitude=${eventInfo.latitude}`)
+     console.log("Submit Button pushed")
+     const {eventInfo}=this.state;
+     if(eventInfo.eventname!==""&&eventInfo.latitude!==""&&eventInfo.longitude!==""){
+    	fetch(`http://proj309-tg-07.misc.iastate.edu:8080/events/add?eventname=${eventInfo.eventname}&longitude=${eventInfo.longitude}&latitude=${eventInfo.latitude}`)
      this.setState({eventInfo:{...eventInfo,signed:true}});
+     console.log("Event Created")
   }
- 
+} 
 
   
   render() {
@@ -95,8 +101,8 @@ class  CreateEvent extends Component {
             label="Event Name"
             name="eventname"
             className={classes.textField}
-            value={this.state.eventname}
-            onChange={this.change}
+            value={eventInfo.eventname}
+            onChange={e=>this.setState({eventInfo:{...eventInfo,eventname:e.target.value}})}
             margin="normal"
           />
           <TextField
@@ -104,27 +110,27 @@ class  CreateEvent extends Component {
             id="latitude"
             label="Latitude"
             className={classes.textField}
-	    value={this.state.latitude}
+	    value={eventInfo.latitude}
             margin="normal"
-            onChange={this.change}
+            onChange={e=>this.setState({eventInfo:{...eventInfo,latitude:e.target.value}})}
           />
 	    <TextField
             name="longitude"
             id="longitude"
             label="Longitude"
             className={classes.textField}
-            value={this.state.longitude}
+            value={eventInfo.longitude}
             margin="normal"
-            onChange={this.change}
+            onChange={e=>this.setState({eventInfo:{...eventInfo,longitude:e.target.value}})}
           />
 	    <TextField
             name="time"
             id="time"
             label="Time"
             className={classes.textField}
-	    value={this.state.time}
+	    value={eventInfo.time}
             margin="normal"
-            onChange={this.change}
+            onChange={e=>this.setState({eventInfo:{...eventInfo,time:e.target.value}})}
           />
           <Button onClick={e => this.submit(e)} variant="contained" className={classes.button}>
             Create

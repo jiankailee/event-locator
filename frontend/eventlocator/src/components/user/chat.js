@@ -10,7 +10,7 @@ class Chat extends Component {
     }
   }
   componentDidMount(){
-    this.socket=io('http://localhost:8080')
+    this.socket=io('http://proj309-tg-07.misc.iastate.edu:8080')
     this.socket.on('message',message=>{
       this.setState({messages:[message,...this.state.messages]})
     })

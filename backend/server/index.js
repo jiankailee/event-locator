@@ -21,7 +21,7 @@ const server=http.createServer(app)
 const io=socketIO(server)
 
 const connection=mysql.createConnection({
-    host:'proj309-tg-07.misc.iastate.edu',  //change to localhost in server
+    host:'localhost',  //change to localhost in server
     user:'team1',
     password:'1234Qwe!',
     database:'309project'
@@ -78,7 +78,7 @@ app.get('/events',(req,res)=>{
 });
 app.get('/events/add',(req,res)=>{
     const {eventname,latitude,longitude}=req.query;
-    const insertEvent=`insert into event(eventname, longitude, latitude) values('${eventname}' ,'${longitude}','${latitude}')`;
+    const insertEvent=`insert into event(eventName, longitude, latitude) values('${eventname}' ,'${longitude}','${latitude}')`;
     connection.query(insertEvent,(err,results)=>{
         if(err){
             return res.send(err);

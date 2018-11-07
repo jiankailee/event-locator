@@ -17,7 +17,7 @@ class App extends Component {
     box_open: false,
     logged_in: false,
     username: null,
-    endpoint: "http://192.168.0.26:8080"
+    endpoint: "http://proj309-tg-07.misc.iastate.edu:8080"
   }
   setLogin = (log_value, username_val) => {
     this.setState({ logged_in: log_value, username: username_val})
