@@ -28,6 +28,9 @@ class App extends Component {
   isMenuOpen = (state) => {
     this.setState({ box_open: state.isOpen });
   }
+  menuClosed = (state) => {
+    this.setState({ box_open: false });
+  }
   render() {
     console.log(this.state.endpoint)
     const socket = socketIOClient(this.state.endpoint);
@@ -36,7 +39,7 @@ class App extends Component {
     });
     return (
       <div className="App">
-        <AppBar callbackFromParent={this.myCallback} logged_in={this.state.logged_in} logged_out={this.setLogin} />
+        <AppBar callbackFromParent={this.myCallback} closeBar={this.menuClosed} logged_in={this.state.logged_in} logged_out={this.setLogin} />
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={this.isMenuOpen} width={'200px'} logged_in={this.state.logged_in} username={this.state.username} callbackFromParent={this.myCallback}/>
         <SwitchComponent callbackFromParent={this.setLogin} />
       </div>
