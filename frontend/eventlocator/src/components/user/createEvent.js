@@ -70,10 +70,9 @@ class  CreateEvent extends Component {
   };
 
   submit = e => {
-    e.preventDefault();
-    console.log(this.state.username);
-    console.log("username exist");
-
+     if(userInfo.username!==""&&userInfo.password!==""&&userInfo.email!==""&&userInfo.address!==""){
+    	fetch(`http://proj309-tg-07.misc.iastate.edu:8080/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
+     this.setState({eventInfo:{...eventInfo,signed:true}});
   }
  
 
@@ -82,7 +81,11 @@ class  CreateEvent extends Component {
   //console.log(this.props.match.params.userName)
 
    const { classes } = this.props;
-
+   const {eventInfo}=this.state;
+   let printSigned;
+   if(eventInfo.signed){
+	   printSigned=<div>Public event created!</div>
+   }
     return (
       <div>
           <h2>Create A Public Event</h2>
@@ -126,6 +129,7 @@ class  CreateEvent extends Component {
           <Button onClick={e => this.submit(e)} variant="contained" className={classes.button}>
             Create
         </Button>
+	{printSigned}
 	</form>
       </div>
      
