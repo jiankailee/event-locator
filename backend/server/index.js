@@ -46,7 +46,7 @@ app.get('/usersInfo/add',(req,res)=>{
         if(err){
             return res.send(err);
         }else{
-            res.send('sucessfully added products');
+            res.send('sucessfully added user');
         }
     });
     //console.log(user,password,email,address);
@@ -75,6 +75,19 @@ app.get('/events',(req,res)=>{
             })
         }
      });
+});
+app.get('/events/add',(req,res)=>{
+    const {eventname,latitude,longitude}=req.query;
+    const insertEvent=`insert into event(eventname, longitude, latitude) values('${eventname}' ,'${longitude}','${latitude}')`;
+    connection.query(insertEvent,(err,results)=>{
+        if(err){
+            return res.send(err);
+        }else{
+            res.send('sucessfully added event');
+        }
+    });
+    //console.log(user,password,email,address);
+    //res.send('adding products')
 });
 let username="";
 app.get('/user/find',(req,res)=>{

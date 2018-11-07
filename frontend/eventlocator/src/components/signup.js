@@ -67,7 +67,7 @@ class signup extends Component {
     let printSigned;
     //console.log("render: "+userInfo.signed);
     if(userInfo.signed){
-      printSigned=<div>thank you for register! please login in </div>
+      printSigned=<div>Thank you for registering! Please login in. </div>
     }
     return (
       <div>
