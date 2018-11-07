@@ -38,8 +38,8 @@ class  CreateEvent extends Component {
   }
     state = {
       selectedIndex: 0,
-      username:"",
-      address:"",
+      latitude:"",
+      longitude:"",
       eventname:"",
       time:""
     };
@@ -53,16 +53,16 @@ class  CreateEvent extends Component {
 
   }
 
-  componentDidMount(){
-    this.getUser();
-  }
+  //componentDidMount(){
+  //  this.getUser();
+  //}
 
-  getUser=_=>{
-    fetch(`http://proj309-tg-07.misc.iastate.edu/user/find?name=test') //{this.props.match.params.userName}`)
-    .then(response=>response.json())
-    .then(response=>this.setState({username: response.data[0].username}))
-    .catch(err=>console.log(err))
-  }
+  //getUser=_=>{
+  //  fetch(`http://proj309-tg-07.misc.iastate.edu/user/find?name=test') //{this.props.match.params.userName}`)
+  //  .then(response=>response.json())
+  //  .then(response=>this.setState({username: response.data[0].username}))
+  //  .catch(err=>console.log(err))
+  //}
 
   handleListItemClick = (event, index) => {
     this.setState({ selectedIndex: index });
@@ -97,11 +97,20 @@ class  CreateEvent extends Component {
             margin="normal"
           />
           <TextField
-            name="address"
-            id="address"
-            label="Address"
+            name="latitude"
+            id="latitude"
+            label="Latitude"
             className={classes.textField}
-	    value={this.state.address}
+	    value={this.state.latitude}
+            margin="normal"
+            onChange={this.change}
+          />
+	    <TextField
+            name="longitude"
+            id="longitude"
+            label="Longitude"
+            className={classes.textField}
+            value={this.state.longitude}
             margin="normal"
             onChange={this.change}
           />
