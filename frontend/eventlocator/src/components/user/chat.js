@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 
 
 class Chat extends Component {
@@ -28,14 +32,22 @@ class Chat extends Component {
     }
   }
   render() {
+    const { classes } = this.props;
     const messages=this.state.messages.map((message,index)=>{
-      return <li key={index}>{message.from}: <b>{message.body}</b></li>
+      return <div key={index}>{message.from}: <b>{message.body}</b></div>
     })
     console.log(this.props.name)
     return (
       <div>
        <h1>Chat Room</h1>
-       <input type='text' placeholder='Enter a message' onKeyUp={this.handleSubmit}/>
+       <TextField
+          id="standard-dense"
+          label="Enter a message"
+          // className={classNames(classes.textField, classes.dense)}
+          margin="dense"
+          onKeyUp={this.handleSubmit}
+        />
+       {/* <input type='text' placeholder='Enter a message' onKeyUp={this.handleSubmit}/> */}
       {messages}
       </div>
     );

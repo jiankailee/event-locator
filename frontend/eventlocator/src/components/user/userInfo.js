@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CreateEvent from './createEvent';
 import Chat from './chat';
 import '../../App.css';
+import Eventlist from './list';
 
 console.log(window.location.href);
 
@@ -65,7 +66,7 @@ class userInfo extends Component {
       display=<CreateEvent/>
     }
     if(this.state.selectedIndex==3){
-      display=<div>will be show event on here</div>
+      display=<Eventlist/>
     }
     if(this.state.selectedIndex==4){
       display=<Chat name={this.state.username}/>
