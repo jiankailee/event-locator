@@ -34,7 +34,7 @@ class Chat extends Component {
     console.log(this.props.name)
     return (
       <div>
-       <h1>hello</h1>
+       <h1>Chat Room</h1>
        <input type='text' placeholder='Enter a message' onKeyUp={this.handleSubmit}/>
       {messages}
       </div>
