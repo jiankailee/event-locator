@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CreateEvent from './createEvent';
 import Chat from './chat';
 import '../../App.css';
+import Mapbox from '../landing/mapbox';
 
 console.log(window.location.href);
 
@@ -62,7 +63,8 @@ class userInfo extends Component {
               <div>email: {this.state.email}</div>,]
     }
     if(this.state.selectedIndex==2){
-      display=<CreateEvent/>
+      display=[<CreateEvent/>,
+              <Mapbox height="500px"/>]
     }
     if(this.state.selectedIndex==3){
       display=<div>will be show event on here</div>
