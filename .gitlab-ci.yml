@@ -1,0 +1,24 @@
+stages:
+ - testbackend
+ - testfrontend
+ - autodeploy
+ - androidbuild
+ - androidtest
+
+testbackend:
+ stage: testbackend
+ tags:
+  - shell
+ script:
+  - cd backend/server
+  - node index.js
+
+testfrontend:
+ stage: testfrontend
+ tags:
+  - shell
+ script:
+  - cd frontend/eventlocator/src
+  - npm install
+  - npm start
+
