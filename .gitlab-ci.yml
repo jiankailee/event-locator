@@ -19,6 +19,5 @@ testfrontend:
   - shell
  script:
   - cd frontend/eventlocator/src
-  - npm install
-  - npm start
+  - npm build
 
