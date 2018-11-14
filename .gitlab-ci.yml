@@ -11,7 +11,7 @@ testbackend:
   - Backend
  script:
   - cd backend/server
-  - node index.js
+  - node -c index.js
 
 testfrontend:
  stage: testfrontend
