@@ -34,7 +34,7 @@ class userInfo extends Component {
   }
   getUser=_=>{
     // console.log(this.props.name)
-    fetch(`http://proj309-tg-07.misc.iastate.edu/user/find?name=${this.props.match.params.userName}`)
+    fetch(`http://proj309-tg-07.misc.iastate.edu:8080/user/find?name=${this.props.match.params.userName}`)
     .then(response=>response.json())
     // .then(response=>console.log(response.data[0].username))
     .then(response=>this.setState({username: response.data[0].username, 
@@ -46,7 +46,7 @@ class userInfo extends Component {
    handleListItemClick = (event, index) => {
     this.setState({ selectedIndex: index });
     //console.log(this.state.selectedIndex)
-    console.log(this.state.selectedIndex);
+    //console.log(this.state.selectedIndex);
   };
   render() {
     //console.log(this.props.match.params.userName)
@@ -67,6 +67,12 @@ class userInfo extends Component {
     if(this.state.selectedIndex==3){
       display=<div>will be show event on here</div>
     }
+    if(this.state.selectedIndex==4){
+      display=<Chat name={this.state.username}/>
+    }
+    if(this.state.selectedIndex==5){
+      display=<div>map here</div>
+    }
     return (
       <div display= 'flex'>
       
@@ -83,7 +89,7 @@ class userInfo extends Component {
       My Event List
       </button> */}
       {display}
-      <Chat name={this.state.username}/>
+      
       </div>
      
     );
