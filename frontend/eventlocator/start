@@ -1,0 +1,152 @@
+Script started on Wed 14 Nov 2018 03:57:12 PM CST
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator\[jwacker@proj309-tg-07 eventlocator]$ ls
+log.txt  [0m[01;34mnode_modules[0m  package.json  package-lock.json  [01;34mpublic[0m  README.md  [01;34msrc[0m  start
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator\[jwacker@proj309-tg-07 eventlocator]$ cd src/
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator/src\[jwacker@proj309-tg-07 src]$ script start
+Script started, file is start
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator/src\[jwacker@proj309-tg-07 src]$ ps -e | grep node
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator/src\[jwacker@proj309-tg-07 src]$ man script
+[?1049h[?1h=SCRIPT(1)                           User Commands                          SCRIPT(1)[m
+[m
+[1mNAME[0m[m
+       script - make typescript of terminal session[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mscript[0m [options] [file][m
+[m
+[1mDESCRIPTION[0m[m
+       [1mscript[0m makes a typescript of everything printed on your terminal.  It is use‐[m
+       ful for students who need a hardcopy record  of  an  interactive  session  as[m
+       proof  of an assignment, as the typescript file can be printed out later with[m
+       [1mlpr[0m(1).[m
+[m
+       If the argument [4mfile[24m is given, [1mscript[0m saves all dialogue in [4mfile[24m.  If no file[m
+       name is given, the typescript is saved in the file [4mtypescript[24m.[m
+[m
+[1mOPTIONS[0m[m
+       [1m-a[0m, [1m--append[0m[m
+              Append the output to [4mfile[24m or [4mtypescript[24m, retaining the prior contents.[m
+[m
+       [1m-c[0m, [1m--command[0m [4mcommand[24m[m
+              Run  the [4mcommand[24m rather than an interactive shell.  This makes it easy[m
+              for a script to capture the output of a program that  behaves  differ‐[m
+              ently when its stdout is not a tty.[m
+[m
+       [1m-e[0m, [1m--return[0m[m
+              Return  the  exit  code of the child process.  Uses the same format as[m
+              bash termination on signal termination exit code is 128+n.[m
+[m
+       [1m-f[0m, [1m--flush[0m[m
+              Flush output after each write.  This is nice for telecooperation:  one[m
+              person  does  `mkfifo  foo;  script -f foo', and another can supervise[m
+              real-time what is being done using `cat foo'.[m
+[m
+       [1m--force[0m[m
+              Allow the default output destination, i.e. the typescript file, to  be[m
+              a hard or symbolic link.  The command will follow a symbolic link.[m
+[m
+       [1m-q[0m, [1m--quiet[0m[m
+              Be quiet.[m
+[m
+[3m Manual page script(1) line 1 (press h for help or q to quit)[23m[K[K[?1l>[?1049lkjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator/src\[jwacker@proj309-tg-07 src]$ sctp_[K[K[Kr
+screen        script        scriptreplay  
+[jwacker@proj309-tg-07 src]$ scr[K[K[Kre
+read                    rebuild-jar-repository  resizecons
+readarray               recode-sr-latin         resizepart
+readelf                 reindexdb               resolveip
+readlink                rename                  resolve_stack_dump
+readonly                renice                  restorecon
+readprofile             repquota                return
+realm                   request-key             rev
+realpath                reset                   
+reboot                  resize2fs               
+[jwacker@proj309-tg-07 src]$ rea
+read         readelf      readonly     realm        
+readarray    readlink     readprofile  realpath     
+[jwacker@proj309-tg-07 src]$ react
+bash: react: command not found
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator/src\[jwacker@proj309-tg-07 src]$ react-scripts
+bash: react-scripts: command not found
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator/src\[jwacker@proj309-tg-07 src]$ cd ..
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator\[jwacker@proj309-tg-07 eventlocator]$ ls
+log.txt  [0m[01;34mnode_modules[0m  package.json  package-lock.json  [01;34mpublic[0m  README.md  [01;34msrc[0m  start
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator\[jwacker@proj309-tg-07 eventlocator]$ ls
+log.txt  [0m[01;34mnode_modules[0m  package.json  package-lock.json  [01;34mpublic[0m  README.md  [01;34msrc[0m  start
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator\[jwacker@proj309-tg-07 eventlocator]$ ls
+log.txt  [0m[01;34mnode_modules[0m  package.json  package-lock.json  [01;34mpublic[0m  README.md  [01;34msrc[0m  start
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend/eventlocator\[jwacker@proj309-tg-07 eventlocator]$ cd ..
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator/frontend\[jwacker@proj309-tg-07 frontend]$ .c[K[Kcd ..
+kjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator\[jwacker@proj309-tg-07 TG_7_EventLocator]$ vim .h[Kgat[K[Kitlab-ci.yml 
+[?1049h[?1h=[1;43r[34l[34h[?25h[23m[24m[0m[H[J[?25l[43;1H".gitlab-ci.yml" 24L, 312C[1;1H[36mstages[0m[35m:[0m
+ [33m- [0mtestbackend
+ [33m- [0mtestfrontend
+ [33m- [0mautodeploy
+ [33m- [0mandroidbuild
+ [33m- [0mandroidtest
+
+[36mtestbackend[0m[35m:[0m
+ [36mstage[0m[35m:[0m testbackend
+ [36mtags[0m[35m:[0m
+  [33m- [0mshell
+ [36mscript[0m[35m:[0m
+  [33m- [0mcd backend/server
+  [33m- [0mnode index.js
+
+[36mtestfrontend[0m[35m:[0m
+ [36mstage[0m[35m:[0m testfrontend
+ [36mtags[0m[35m:[0m
+  [33m- [0mshell
+ [36mscript[0m[35m:[0m
+  [33m- [0mcd frontend/eventlocator/src
+  [33m- [0mnpm install
+  [33m- [0mnode App.js
+
+[1m[34m~                                                                                      [26;1H~                                                                                      [27;1H~                                                                                      [28;1H~                                                                                      [29;1H~                                                                                      [30;1H~                                                                                      [31;1H~                                                                                      [32;1H~                                                                                      [33;1H~                                                                                      [34;1H~                                                                                      [35;1H~                                                                                      [36;1H~                                                                                      [37;1H~                                                                                      [38;1H~                                                                                      [39;1H~                                                                                      [40;1H~                                                                                      [41;1H~                                                                                      [42;1H~                                                                                      [0m[43;70H19,3[10CAll[19;3H[34h[?25h[?25l[43;1H[K[43;1H:[34h[?25hq[?25l[34h[?25h[?25l[43;1H[K[43;1H[?1l>[34h[?25h[?1049lkjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator\[jwacker@proj309-tg-07 TG_7_EventLocator]$ vim gi[K[K.git
+[?1049h[?1h=[1;43r[34l[34h[?25h[23m[24m[0m[H[J[?25l[43;1H".git" is a directory[1;1H[4m[34m" ============================================================================[24m[0m[4m         [24m[2;1H[34m" Netrw Directory Listing                                        [0m[36m(netrw v149)[0m
+[34m"   /var/www/html/TG_7_EventLocator/.git
+"   Sorted by[0m[33m      name[0m
+[34m"   Sort sequence:[0m[33m [\/]$[0m[34m,[0m[33m\<core\%(\.\d\+\)\=\>[0m[34m,[0m[33m\.h$[0m[34m,[0m[33m\.c$[0m[34m,[0m[33m\.cpp$[0m[34m,[0m[33m\~\=\*$[0m[34m,[0m[33m*[0m[34m,[0m[33m\.o$[0m[34m,[0m[33m\.obj$[0m[34m,[0m[33m\[0m[6;1H[34m"   Quick Help: [0m<F1[36m>[0m[35m:[0mhelp  [36m-[0m[35m:[0mgo up dir  [36mD[0m[35m:[0mdelete  [36mR[0m[35m:[0mrename  [36ms[0m[35m:[0msort-by  [36mx[0m[35m:[0mexec
+[34m" ============================================================================
+..[0m[36m/[0m
+[34m.[0m[36m/[0m
+[34mbranches[0m[36m/[0m
+[34mhooks[0m[36m/[0m
+[34minfo[0m[36m/[0m
+[34mlogs[0m[36m/[0m
+[34mobjects[0m[36m/[0m
+[34mrefs[0m[36m/[0m
+COMMIT_EDITMSG
+FETCH_HEAD
+HEAD
+ORIG_HEAD
+config
+description
+index
+packed-refs
+.swp
+[1m[34m~                                                                                      [26;1H~                                                                                      [27;1H~                                                                                      [28;1H~                                                                                      [29;1H~                                                                                      [30;1H~                                                                                      [31;1H~                                                                                      [32;1H~                                                                                      [33;1H~                                                                                      [34;1H~                                                                                      [35;1H~                                                                                      [36;1H~                                                                                      [37;1H~                                                                                      [38;1H~                                                                                      [39;1H~                                                                                      [40;1H~                                                                                      [41;1H~                                                                                      [42;1H~                                                                                      [0m[43;70H1,1[11CAll[1;1H[34h[?25h[?25l[43;1H[K[43;1H:[34h[?25hq[?25l[34h[?25h[?25l[43;1H[K[43;1H[?1l>[34h[?25h[?1049lkjwacker@proj309-tg-07:/var/www/html/TG_7_EventLocator\[jwacker@proj309-tg-07 TG_7_EventLocator]$ vim .gitlab-ci.yml 
+[?1049h[?1h=[1;43r[34l[34h[?25h[23m[24m[0m[H[J[?25l[43;1H".gitlab-ci.yml" 24L, 312C[1;1H[36mstages[0m[35m:[0m
+ [33m- [0mtestbackend
+ [33m- [0mtestfrontend
+ [33m- [0mautodeploy
+ [33m- [0mandroidbuild
+ [33m- [0mandroidtest
+
+[36mtestbackend[0m[35m:[0m
+ [36mstage[0m[35m:[0m testbackend
+ [36mtags[0m[35m:[0m
+  [33m- [0mshell
+ [36mscript[0m[35m:[0m
+  [33m- [0mcd backend/server
+  [33m- [0mnode index.js
+
+[36mtestfrontend[0m[35m:[0m
+ [36mstage[0m[35m:[0m testfrontend
+ [36mtags[0m[35m:[0m
+  [33m- [0mshell
+ [36mscript[0m[35m:[0m
+  [33m- [0mcd frontend/eventlocator/src
+  [33m- [0mnpm install
+  [33m- [0mnode App.js
+
+[1m[34m~                                                                                      [26;1H~                                                                                      [27;1H~                                                                                      [28;1H~                                                                    
