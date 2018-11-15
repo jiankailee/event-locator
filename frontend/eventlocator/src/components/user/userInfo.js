@@ -31,7 +31,6 @@ class userInfo extends Component {
   }
   reRender(){
     console.log(this.state.selectedIndex);
-    
   }
   getUser=_=>{
     // console.log(this.props.name)
