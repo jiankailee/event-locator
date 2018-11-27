@@ -3,6 +3,7 @@ import CreateEvent from './createEvent';
 import Chat from './chat';
 import '../../App.css';
 import Eventlist from './list';
+import Mapbox from '../landing/mapbox';
 
 console.log(window.location.href);
 
@@ -72,10 +73,14 @@ class userInfo extends Component {
       display=<Chat name={this.state.username}/>
     }
     if(this.state.selectedIndex==5){
-      display=<div>map here</div>
+      display= 
+      <div id="map">
+        <Mapbox />
+      </div>
+    
     }
     return (
-      <div display= 'flex'>
+      <div>
       
       {/* <button onClick={event => this.handleListItemClick(event, 0)}>
       map

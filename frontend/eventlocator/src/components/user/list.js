@@ -40,7 +40,8 @@ class eventlist extends React.Component {
   //    display+=<div>{this.state.allevent[i].eventName}</div>
   //  }
     return (
-      <div>
+      <div id="eventlist">
+        <h3>Public Event List</h3>
         {display}
       </div>
       )

@@ -38,6 +38,7 @@
 .map_wrapper{
   width: 100%;
   height:100%;
+  position: absolute;
 }
 
 .SwitchComponent{
@@ -56,4 +57,9 @@
 #landing_map_wrapper{
   width: 100%;
   height: 100%;
+}
+#eventlist{
+  position: absolute;
+  padding-top: 5px;
+  width: 100%;
 }
