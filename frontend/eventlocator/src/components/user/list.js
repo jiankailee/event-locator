@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Geocode from "react-geocode";
 
+Geocode.enableDebug();
+Geocode.setApiKey("AIzaSyD2PmGt0njVsFK-hgSwBkVXcQc8kd1Vsp4");
 class eventlist extends React.Component {
   constructor(props){
     super(props);
@@ -25,9 +28,12 @@ class eventlist extends React.Component {
  }
   render() {
     // let display;
+    // let addresss="asd";
     const display=this.state.allevent.map((event,index)=>{
+      
       return <div key={index}>{event.eventName}</div>
     })
+   
     console.log(this.state.allevent)
   //  for(var i=0;i<this.state.allevent.length;i++){
   //   //  console.log(this.state.allevent[i])
