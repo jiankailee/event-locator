@@ -16,14 +16,14 @@ class Landing extends Component {
     this.setState({eventBoxHidden: "false"})
   }
   render() {
-    const printvalue = (name) => {
-      this.setState({currentEventInfo: name, eventBoxHidden: false,})
+    const pass_marker_info = (info) => {
+      this.setState({currentEventInfo: info, eventBoxHidden: false,})
     }
     return (
       <div id="landing_map_wrapper">
         {/* <div height="100%"><Grid/></div> */}
-        <Mapbox callbackFromParent={printvalue}/>
-        {!this.state.eventBoxHidden && <EventInfoBox callbackFromParent={this.closeBox} currentName={this.state.currentEventInfo}/>}
+        {!this.state.eventBoxHidden && <EventInfoBox callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo}/>}
+        <Mapbox callbackFromParent={pass_marker_info}/>
       </div>
     );
   }

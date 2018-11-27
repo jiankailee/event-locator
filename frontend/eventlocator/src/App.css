@@ -61,19 +61,53 @@
   width: 100%;
   height: 100%;
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 #event_info_box{
   display: flex;
-  width: 100%; 
-  height: 200px;
+  width: 400px; 
+  height: 100%;
   position: relative;
 }
 
 .top_x_button{
-  position: absolute;
-  top:5px;
-  right: 10px;
+  position: relative;
   cursor: pointer;
+  width:100%;
+  height: 30px;
+  text-align: right;
+  background-color: #EEE;
+  font-size: 30px;
+  padding-right:4px;
+}
+
+.top_x_button:hover{
+  color:red;
+}
+
+#event_inside_box{
+  position: absolute;
+  left: 0px;
+  right:0px;
+  top: 30px;
+  bottom: 0px;
+  text-align: left;
+  font-size: 24px;
+}
+
+#event_box_description, #event_box_title{
+  padding: 0 10px 0 10px;
+}
+
+#event_box_description{
+  font-size: 16px;
+}
+
+#event_box_title{
+  color: white;
+  background-color: blue;
+  margin-top: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

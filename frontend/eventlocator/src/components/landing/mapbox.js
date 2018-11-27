@@ -26,7 +26,7 @@ class Mapbox extends Component {
     Example = ({ components }) => (
         <div>
             {components.map((component, i) => <Marker key={i} position={[component.latitude, component.longitude]}>
-                <Popup onOpen={() => this.passInfoToBox(component.eventName)}>
+                <Popup onOpen={() => this.passInfoToBox(component)}>
                     {component.eventName}
                 </Popup>
             </Marker>)}
@@ -37,6 +37,7 @@ class Mapbox extends Component {
     }
     passInfoToBox = (values) =>{
         this.props.callbackFromParent(values);
+        console.log(this.state.allLocation)
     }
     getUsersInfo = _ => {
         fetch('http://proj309-tg-07.misc.iastate.edu:8080/events')
@@ -48,24 +49,10 @@ class Mapbox extends Component {
             .catch(err => console.log(err))
         //console.log(this.state.alluser);
     }
-    printValue(){
-        console.log("here");
-    }
     render() {
         return (
             <div className="map_wrapper">
                 <Map className="map" center={this.state} zoom={this.state.zoom}>
-                    {/* <Marker position={[42.0284, -93.6509]}>
-                        <Popup onOpen={this.printValue}>
-                            <EventBox />
-                        </Popup>
-                    </Marker>
-                    <Marker position={[42.0284, -93.6510]}>
-                        <Popup>
-                            <EventBox />
-                        </Popup>
-                    </Marker> */}
-                    {/* <Map_search_bar/> */}
                     <TileLayer
                         attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

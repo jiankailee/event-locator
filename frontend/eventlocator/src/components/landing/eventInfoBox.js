@@ -1,6 +1,7 @@
 import React, { createRef, Component } from 'react';
 import 'leaflet/dist/leaflet.css';
 import '../../App.css';
+import CloseIcon from '@material-ui/icons/Close';
 
 class eventInfoBox extends Component {
   constructor(props){
@@ -12,8 +13,12 @@ class eventInfoBox extends Component {
   render() {
     return (
       <div id="event_info_box">
-        {this.props.currentName}
-        <div class="top_x_button" onClick={this.passCloseBox}>&#10006;</div>
+      <div class="top_x_button" onClick={this.passCloseBox}><CloseIcon/></div>
+        <div id="event_inside_box">
+          <p id="event_box_title">{this.props.currentInfo.eventName}</p>
+          <p id="event_box_description">{this.props.currentInfo.description}</p>
+        </div>
+        
       </div>
     );
   }
