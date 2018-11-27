@@ -22,6 +22,7 @@ class userInfo extends Component {
     email:""
   };
   componentWillReceiveProps(nextProps){
+    //this.setState({selectedIndex: nextProps.location.state.selectedIndex})
     this.state.selectedIndex = nextProps.location.state.selectedIndex;
     console.log(nextProps)
   }
