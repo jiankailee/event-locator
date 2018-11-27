@@ -4,6 +4,7 @@ import Chat from './chat';
 import '../../App.css';
 import Eventlist from './list';
 import Mapbox from '../landing/mapbox';
+import CreatePrivateEvent from './createPrivateEvent';
 
 console.log(window.location.href);
 
@@ -48,20 +49,17 @@ class userInfo extends Component {
    handleListItemClick = (event, index) => {
     this.setState({ selectedIndex: index });
     //console.log(this.state.selectedIndex)
-    //console.log(this.state.selectedIndex);
+    // console.log(this.state.selectedIndex);
   };
   render() {
     //console.log(this.props.match.params.userName)
     //console.log(this.state.username+" "+this.state.password+" "+this.state.address+" "+this.state.email)
     let display
-    if(this.state.selectedIndex==0){
-      display=<div>Will be a big map on here</div>
-    }
     if(this.state.selectedIndex==1){
-      display=[<div>username: {this.state.username}</div>,
-              <div>password: {this.state.password}</div>,
-              <div>address: {this.state.address}</div>,
-              <div>email: {this.state.email}</div>,]
+      display=[<div><div>username: {this.state.username}</div>
+              <div>password: {this.state.password}</div>
+              <div>address: {this.state.address}</div>
+              <div>email: {this.state.email}</div></div>]
     }
     if(this.state.selectedIndex==2){
       display=<CreateEvent/>
@@ -77,8 +75,11 @@ class userInfo extends Component {
       <div id="map">
         <Mapbox />
       </div>
-    
     }
+    if(this.state.selectedIndex==6){
+      display=<CreatePrivateEvent/>
+    }
+    
     return (
       <div>
       
@@ -95,6 +96,7 @@ class userInfo extends Component {
       My Event List
       </button> */}
       {display}
+
       
       </div>
      
