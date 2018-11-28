@@ -72,6 +72,7 @@
 }
 
 .top_x_button{
+  color: #555;
   position: relative;
   cursor: pointer;
   width:100%;
@@ -106,8 +107,27 @@
 
 #event_box_title{
   color: white;
-  background-color: blue;
+  background-color: #3f51b5;
   margin-top: 0;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#side_arrow{
+  position: absolute;
+  height: 400px;
+  left:0;
+  background-color: white;
+  width: 50px;
+  z-index: 10000;
+}
+
+#side_button{
+  position: fixed;
+  z-index: 10000;
+  height: 20%;
+  top:40%;
+  background-color: #3f51b5;
+  color:white;
+  width: 20px;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Grid from './grid';
 import Mapbox from './mapbox';
+import SideArrow from './sideOpenArrow'
 import '../../App.css'
 import EventInfoBox from './eventInfoBox'
 
@@ -10,19 +11,31 @@ class Landing extends Component {
   }
   state = {
     currentEventInfo: "",
-    eventBoxHidden: true,
+    eventBoxHidden: false,
+    boxContent: 0,
   }
   closeBox = () => {
-    this.setState({eventBoxHidden: "false"})
+    this.setState({eventBoxHidden: true})
+  }
+  openBox = () => {
+    this.setState({eventBoxHidden: false})
+    console.log(this.state.eventBoxHidden)
   }
   render() {
     const pass_marker_info = (info) => {
-      this.setState({currentEventInfo: info, eventBoxHidden: false,})
+      this.setState({currentEventInfo: info, eventBoxHidden: false, boxContent: 1,})
+    }
+    let sideContent;
+    if(this.state.eventBoxHidden === true){
+      sideContent = <SideArrow openBox={this.openBox}/>;
+    }
+    else if(this.state.eventBoxHidden === false){
+      sideContent = <EventInfoBox callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo} boxContent={this.state.boxContent}/>;
     }
     return (
       <div id="landing_map_wrapper">
         {/* <div height="100%"><Grid/></div> */}
-        {!this.state.eventBoxHidden && <EventInfoBox callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo}/>}
+        {sideContent}
         <Mapbox callbackFromParent={pass_marker_info}/>
       </div>
     );
