@@ -1,7 +1,7 @@
 import React, { createRef, Component } from 'react';
 import 'leaflet/dist/leaflet.css';
 import '../../App.css';
-import CloseIcon from '@material-ui/icons/Close';
+import RightArrow from '@material-ui/icons/KeyboardArrowRight';
 import Button from '@material-ui/core/Button';
 
 class sideArrow extends Component {
@@ -13,7 +13,7 @@ class sideArrow extends Component {
   }
   render() {
     return(
-      <Button onClick={this.openBox} id="side_button">></Button>
+      <Button onClick={this.openBox} id="side_button"><RightArrow id="right_arrow_style"/></Button>
     );
   }
 }

@@ -11,7 +11,7 @@ class Landing extends Component {
   }
   state = {
     currentEventInfo: "",
-    eventBoxHidden: false,
+    eventBoxHidden: true,
     boxContent: 0,
   }
   closeBox = () => {
@@ -20,6 +20,10 @@ class Landing extends Component {
   openBox = () => {
     this.setState({eventBoxHidden: false})
     console.log(this.state.eventBoxHidden)
+  }
+  backPage = () => {
+    this.setState({boxContent: 0});
+    console.log(this.state.box)
   }
   render() {
     const pass_marker_info = (info) => {
@@ -30,7 +34,7 @@ class Landing extends Component {
       sideContent = <SideArrow openBox={this.openBox}/>;
     }
     else if(this.state.eventBoxHidden === false){
-      sideContent = <EventInfoBox callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo} boxContent={this.state.boxContent}/>;
+      sideContent = <EventInfoBox backToAllEvents={this.backPage} callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo} boxContent={this.state.boxContent}/>;
     }
     return (
       <div id="landing_map_wrapper">
