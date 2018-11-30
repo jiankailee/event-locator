@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import Geocode from "react-geocode";
 
 // console.log(window.location.href);
-
+Geocode.setApiKey("AIzaSyD2PmGt0njVsFK-hgSwBkVXcQc8kd1Vsp4");
 const styles = theme => ({
 
   container: {
@@ -40,10 +40,14 @@ class  CreatePrivateEvent extends Component {
       eventInfo:{
       selectedIndex: 0,
       address:"",
-      numberOfPeople:"",
+      description:"",
       eventname:"",
-      time:"",
-      signed: false
+      starttime:"",
+      endtime:"",
+      signed: false,
+      long:null,
+      lat:null,
+      
      }
     };
     //onChange = this.change.bind(this);
@@ -60,27 +64,31 @@ class  CreatePrivateEvent extends Component {
   //  this.getUser();
   //}
 
-  //getUser=_=>{
-  //  fetch(`http://proj309-tg-07.misc.iastate.edu/user/find?name=test') //{this.props.match.params.userName}`)
-  //  .then(response=>response.json())
-  //  .then(response=>this.setState({username: response.data[0].username}))
-  //  .catch(err=>console.log(err))
-  //}
-
   handleListItemClick = (event, index) => {
     this.setState({ selectedIndex: index });
     console.log(this.state.selectedIndex)
   };
 
-//   submit = e => {
-//      console.log("Submit Button pushed")
-//      const {eventInfo}=this.state;
-//      if(eventInfo.eventname!==""&&eventInfo.latitude!==""&&eventInfo.longitude!==""){
-//     	fetch(`http://proj309-tg-07.misc.iastate.edu:8080/events/add?eventname=${eventInfo.eventname}&longitude=${eventInfo.longitude}&latitude=${eventInfo.latitude}`)
-//      this.setState({eventInfo:{...eventInfo,signed:true}});
-//      console.log("Event Created")
-//   }
-// } 
+  submit = e => {
+     console.log("Submit Button pushed")
+    const {eventInfo}=this.state;
+    //  let rlat,rlng;
+    console.log(eventInfo.address)
+    Geocode.fromAddress(eventInfo.address).then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log(lat, lng);
+        // if(eventInfo.eventname!==""&&eventInfo.address!==""&&eventInfo.description!==""){
+        //     fetch(`http://localhost:8080/events/add?eventname=${eventInfo.eventname}&description=${eventInfo.description}&address=${eventInfo.address}&longitude=${lng}&latitude=${lat}&endtime=${eventInfo.endtime}&starttime=${eventInfo.starttime}`);
+        //     this.setState({eventInfo:{...eventInfo,signed:true}});
+        //     console.log("Event Created")
+        //   }
+      },
+      error => {
+        console.error(error);
+      }
+    );
+} 
 
   
   render() {
@@ -114,24 +122,37 @@ class  CreatePrivateEvent extends Component {
             margin="normal"
             onChange={e=>this.setState({eventInfo:{...eventInfo,address:e.target.value}})}
           />
+          <TextField
+          name="description"
+          id="standard-multiline-flexible"
+          label="Description"
+          multiline
+          rowsMax="4"
+          value={eventInfo.description}
+          onChange={e=>this.setState({eventInfo:{...eventInfo,description:e.target.value}})}
+          className={classes.textField}
+          margin="normal"
+        />
 	    <TextField
-            name="numberOfPeople"
-            id="numberOfPeople"
-            label="number Of People"
-            className={classes.textField}
-            value={eventInfo.numberOfPeople}
-            margin="normal"
-            onChange={e=>this.setState({eventInfo:{...eventInfo,numberOfPeople:e.target.value}})}
-          />
-	    <TextField
-            name="time"
-            id="time"
-            label="Time"
-            className={classes.textField}
-	    value={eventInfo.time}
-            margin="normal"
-            onChange={e=>this.setState({eventInfo:{...eventInfo,time:e.target.value}})}
-          />
+        id="starttime"
+        label="starttime"
+        type="datetime-local"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+        onChange={e=>this.setState({eventInfo:{...eventInfo,starttime:e.target.value}})}
+      />
+      <TextField
+        id="endtime"
+        label="endtime"
+        type="datetime-local"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+        onChange={e=>this.setState({eventInfo:{...eventInfo,endtime:e.target.value}})}
+      />
           <Button onClick={e => this.submit(e)} variant="contained" className={classes.button}>
             Create
         </Button>

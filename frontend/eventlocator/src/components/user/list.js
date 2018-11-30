@@ -63,8 +63,7 @@ class eventlist extends React.Component {
       // <div className="card-starttime">{event.starttime}</div>
       // <div className="card-endtime">{event.endtime}</div>
       // </div>
-      return 
-      <div>
+      return <div key={index}>
         <Card >
           <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -77,11 +76,11 @@ class eventlist extends React.Component {
             {event.address}
           </Typography>
           <Typography component="p">
-            {event.starttime},{event.endtime}
+            {event.starttime}  to  {event.endtime}
           </Typography>
         </CardContent>
          </Card>
-        </div>
+       </div>
     })
    
     console.log(this.state.allevent)
