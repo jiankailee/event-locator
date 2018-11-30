@@ -8,15 +8,6 @@ const http=require('http')
 const selectAll ='SELECT * FROM usersInfo;';
 const allevents ='SELECT * FROM event';
 
-// var server = require('http').createServer(express);
-// var io = require('socket.io')(server, { origins: '*:*'});
-// io.origins('*:*')
-
-// io.on('connection', function(socket){
-//     console.log('connected');
-//   });
-
-//   server.listen(port, () => console.log(`Listening on port ${port}`))
 const server=http.createServer(app)
 const io=socketIO(server)
 
@@ -77,8 +68,10 @@ app.get('/events',(req,res)=>{
      });
 });
 app.get('/events/add',(req,res)=>{
-    const {eventname,latitude,longitude}=req.query;
-    const insertEvent=`insert into event(eventName, longitude, latitude) values('${eventname}' ,'${longitude}','${latitude}')`;
+    
+    // console.log(req.query)
+    const {eventname,latitude,longitude,address,description,endtime,starttime}=req.query;
+    const insertEvent=`insert into event(eventName,longitude,latitude,address,description,starttime,endtime) values('${eventname}' ,'${longitude}','${latitude}','${address}','${description}','${starttime}','${endtime}')`;
     connection.query(insertEvent,(err,results)=>{
         if(err){
             return res.send(err);
@@ -86,7 +79,7 @@ app.get('/events/add',(req,res)=>{
             res.send('sucessfully added event');
         }
     });
-    //console.log(user,password,email,address);
+    // console.log(eventname,latitude,longitude,address,description,endtime,starttime);
     //res.send('adding products')
 });
 let username="";
