@@ -97,8 +97,8 @@ app.get('/privateevents',(req,res)=>{
 app.get('/privateevents/add',(req,res)=>{
     
     // console.log(req.query)
-    const {eventname,latitude,longitude,address,description,endtime,starttime}=req.query;
-    const insertEvent=`insert into privateEvent(eventName,longitude,latitude,address,description,starttime,endtime) values('${eventname}' ,'${longitude}','${latitude}','${address}','${description}','${starttime}','${endtime}')`;
+    const {userName,eventname,latitude,longitude,address,description,endtime,starttime}=req.query;
+    const insertEvent=`insert into privateEvent(userName,eventName,longitude,latitude,address,description,starttime,endtime) values('${userName}','${eventname}' ,'${longitude}','${latitude}','${address}','${description}','${starttime}','${endtime}')`;
     connection.query(insertEvent,(err,results)=>{
         if(err){
             return res.send(err);
