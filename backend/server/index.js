@@ -82,6 +82,33 @@ app.get('/events/add',(req,res)=>{
     // console.log(eventname,latitude,longitude,address,description,endtime,starttime);
     //res.send('adding products')
 });
+app.get('/privateevents',(req,res)=>{
+    //res.send("in usersInfo");
+   connection.query('SELECT * FROM privateEvent',(err,results)=>{
+       if(err){
+           return res.send(err);
+       }else{
+           return res.json({
+               data:results
+           })
+       }
+    });
+});
+app.get('/privateevents/add',(req,res)=>{
+    
+    // console.log(req.query)
+    const {eventname,latitude,longitude,address,description,endtime,starttime}=req.query;
+    const insertEvent=`insert into privateEvent(eventName,longitude,latitude,address,description,starttime,endtime) values('${eventname}' ,'${longitude}','${latitude}','${address}','${description}','${starttime}','${endtime}')`;
+    connection.query(insertEvent,(err,results)=>{
+        if(err){
+            return res.send(err);
+        }else{
+            res.send('sucessfully added privateEvent');
+        }
+    });
+    // console.log(eventname,latitude,longitude,address,description,endtime,starttime);
+    //res.send('adding products')
+});
 let username="";
 app.get('/user/find',(req,res)=>{
     console.log(req.query)
