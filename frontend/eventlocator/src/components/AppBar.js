@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 import './../App.css'
+import { Redirect } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -35,20 +36,23 @@ class ButtonAppBar extends Component {
   }
   render() {
     const { classes } = this.props;
-    let log_button;
+    let log_button,appbarCenter;
     if (!this.props.logged_in) {
       log_button = <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link>
+      appbarCenter=<Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
     }
     else {
       log_button = <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button onClick={this.logOut} color="inherit">Log Out</Button></Link>
+      appbarCenter=<Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to={{pathname: `/user/${this.props.username}`, state: {selectedIndex: 5}}}><Button color="inherit">Event Locator</Button></Link>
     }
+    console.log(this.props.username)
     return (
       <div className={classes.root}>
         <AppBar position="static" style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px' }}>
           {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
           <Button onClick={this.test_func} color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}>Menu</Button>
-          <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
-          {/* <Link style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link> */}
+          {/* <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link> */}
+          {appbarCenter}
           {log_button}
           {/* </Toolbar> */}
         </AppBar>

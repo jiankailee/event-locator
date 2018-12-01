@@ -5,6 +5,7 @@ import '../../App.css';
 import Eventlist from './list';
 import Mapbox from '../landing/mapbox';
 import CreatePrivateEvent from './createPrivateEvent';
+import PrivateEvent from './privateEvent';
 
 console.log(window.location.href);
 
@@ -55,6 +56,7 @@ class userInfo extends Component {
     //console.log(this.props.match.params.userName)
     //console.log(this.state.username+" "+this.state.password+" "+this.state.address+" "+this.state.email)
     let display
+    const loggedin=true;
     if(this.state.selectedIndex==1){
       display=[<div><div>username: {this.state.username}</div>
               <div>password: {this.state.password}</div>
@@ -73,28 +75,18 @@ class userInfo extends Component {
     if(this.state.selectedIndex==5){
       display= 
       <div id="map">
-        <Mapbox />
+        <Mapbox login={loggedin}/>
       </div>
     }
     if(this.state.selectedIndex==6){
-      display=<CreatePrivateEvent/>
+      display=<CreatePrivateEvent username={this.state.username}/>
+    }
+    if(this.state.selectedIndex==7){
+      display=<PrivateEvent/>
     }
     
     return (
       <div>
-      
-      {/* <button onClick={event => this.handleListItemClick(event, 0)}>
-      map
-      </button>
-      <button onClick={event => this.handleListItemClick(event, 1)}>
-      My Info
-      </button>
-      <button onClick={event => this.handleListItemClick(event, 2)}>
-      Create Event
-      </button>
-      <button onClick={event => this.handleListItemClick(event, 3)}>
-      My Event List
-      </button> */}
       {display}
 
       

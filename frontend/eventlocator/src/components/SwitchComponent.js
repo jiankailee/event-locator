@@ -8,10 +8,6 @@ import signup from './signup';
 import Landing from './landing/landingPage';
 import userInfo from './user/userInfo';
 
-// import Switch from 'react-router-dom/Switch';
-// import Route from 'react-router-dom/Route';
-// import login from './components/login';
-// import signup from './components/signup';
 
 class SwitchComponent extends Component {
   constructor(props) {

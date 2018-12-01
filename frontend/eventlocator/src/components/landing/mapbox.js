@@ -39,9 +39,11 @@ class Mapbox extends Component {
         lng: -93.6509,
         zoom: 14,
         allLocation:[],
+        privateLocation:[]
     }
     componentDidMount(){
         this.getUsersInfo();
+        this.getPrivateEvent();
       }
     getUsersInfo=_=>{
         fetch('http://proj309-tg-07.misc.iastate.edu:8080/events')
@@ -53,9 +55,24 @@ class Mapbox extends Component {
         .catch(err=>console.log(err))
         //console.log(this.state.alluser);
       }
+    getPrivateEvent=_=>{
+        fetch('http://localhost:8080/privateevents')
+        .then(response=>response.json())
+        .then(response=>this.setState({privateLocation: response.data}))
+        // .then({data})=>{
+        //   console.log(data)
+        // })
+        .catch(err=>console.log(err))
+        //console.log(this.state.alluser);
+      }
 
     render() {
         console.log(this.state.allLocation)
+        console.log(this.props.login)
+        let display
+        if(this.props.login){
+            display=<Example components={this.state.privateLocation}/>
+        }
         // var test_info = [['Parks Library', [42.0281, -93.6488]], ['Memorial Union', [42.0237, -93.6459]]];
 
         // var test1 = ['Coover Hall', [42.0284, -93.6509]];
@@ -70,6 +87,7 @@ class Mapbox extends Component {
                         url= "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <Example components={this.state.allLocation}/>
+                    {display}
                 </Map>
             </div >
         );

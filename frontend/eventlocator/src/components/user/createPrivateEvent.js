@@ -78,11 +78,11 @@ class  CreatePrivateEvent extends Component {
       response => {
         const { lat, lng } = response.results[0].geometry.location;
         console.log(lat, lng);
-        // if(eventInfo.eventname!==""&&eventInfo.address!==""&&eventInfo.description!==""){
-        //     fetch(`http://localhost:8080/events/add?eventname=${eventInfo.eventname}&description=${eventInfo.description}&address=${eventInfo.address}&longitude=${lng}&latitude=${lat}&endtime=${eventInfo.endtime}&starttime=${eventInfo.starttime}`);
-        //     this.setState({eventInfo:{...eventInfo,signed:true}});
-        //     console.log("Event Created")
-        //   }
+        if(eventInfo.eventname!==""&&eventInfo.address!==""&&eventInfo.description!==""){
+            fetch(`http://localhost:8080/privateevents/add?userName=${this.props.username}&eventname=${eventInfo.eventname}&description=${eventInfo.description}&address=${eventInfo.address}&longitude=${lng}&latitude=${lat}&endtime=${eventInfo.endtime}&starttime=${eventInfo.starttime}`);
+            this.setState({eventInfo:{...eventInfo,signed:true}});
+            console.log("Event Created")
+          }
       },
       error => {
         console.error(error);
@@ -92,7 +92,7 @@ class  CreatePrivateEvent extends Component {
 
   
   render() {
-  //console.log(this.props.match.params.userName)
+  console.log(this.props.username)
 
    const { classes } = this.props;
    const {eventInfo}=this.state;

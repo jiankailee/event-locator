@@ -6,7 +6,9 @@ import '../../App.css'
 
 
 class Landing extends Component {
+ 
   render() {
+    
     return (
       <div id="landing_map_wrapper">
         {/* <div height="100%"><Grid/></div> */}
