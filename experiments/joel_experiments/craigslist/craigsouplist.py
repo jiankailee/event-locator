@@ -5,7 +5,7 @@ import mysql.connector
 from mysql.connector import Error
 
 def main():
-    r = requests.get('https://ames.craigslist.org/search/eve?search_distance=200&postal=50014&sale_date=2018-10-30')
+    r = requests.get('https://ames.craigslist.org/search/eve?sort=upcoming&nearbyArea=339&nearbyArea=340&nearbyArea=341&nearbyArea=567&nearbyArea=691&nearbyArea=692&nearbyArea=693&nearbyArea=98&searchNearby=2')
     print r.status_code
     reqtext = r.text
     soup = BeautifulSoup(reqtext, 'html.parser')
