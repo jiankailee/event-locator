@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import '../../App.css';
 import CloseIcon from '@material-ui/icons/Close';
 import BackButton from '@material-ui/icons/KeyboardArrowLeft';
+import LocalEvents from './localEventBox'
 
 class eventInfoBox extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class eventInfoBox extends Component {
             <div id="top_x_button_long" onClick={this.passCloseBox}><CloseIcon /></div>
           </div>
           <div id="event_inside_box">
+            <LocalEvents />
           </div>
         </div>
       );
