@@ -198,3 +198,11 @@
   font-size: 16px;
   font-weight: normal;
 }
+
+#no_local_events{
+  font-size: 20px;
+  margin: 0 auto;
+  color: #444;
+  text-align: center;
+  padding-top: 10px;
+}

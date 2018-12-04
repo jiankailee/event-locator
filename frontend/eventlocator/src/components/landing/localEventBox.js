@@ -23,7 +23,7 @@ class eventInfoBox extends Component {
   }
   Example = ({ components }) => (
     <div>
-      {components.map((component, i) => <Card className="sidebar_card" key={i}>
+      {components.map((component, i) => <Card onClick={()=>this.props.goToPage(component)} className="sidebar_card" key={i}>
         <CardContent>
           <h3 className="total_view_title_text">{component.eventName}</h3>
           <p className="total_view_body_text_border">{component.address}</p>
@@ -46,9 +46,17 @@ class eventInfoBox extends Component {
     //console.log(this.state.alluser);
 }
   render() {
+    let box_content;
+
+    if(this.state.allLocation.length > 0){
+      box_content = <this.Example components={this.state.allLocation} />
+    }
+    else{
+      box_content = <p id="no_local_events">No local events found</p>
+    }
     return (
       <div>
-        <this.Example components={this.state.allLocation} />
+        {box_content}
       </div>
     );
   }

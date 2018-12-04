@@ -16,6 +16,9 @@ class eventInfoBox extends Component {
     this.props.backToAllEvents();
     console.log("reset")
   }
+  goToPage = (info) => {
+    this.props.viewEvent(info);
+  }
   render() {
     if (this.props.boxContent === 0) {
       return (
@@ -24,7 +27,7 @@ class eventInfoBox extends Component {
             <div id="top_x_button_long" onClick={this.passCloseBox}><CloseIcon /></div>
           </div>
           <div id="event_inside_box">
-            <LocalEvents />
+            <LocalEvents goToPage={this.goToPage}/>
           </div>
         </div>
       );
