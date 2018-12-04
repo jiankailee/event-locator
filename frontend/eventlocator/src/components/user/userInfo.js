@@ -74,27 +74,34 @@ class userInfo extends Component {
     if(this.state.selectedIndex==4){
       display=<Chat name={this.state.username}/>
     }
-    if(this.state.selectedIndex==5){
-      display= 
-      <div id="map">
-        <Mapbox login={loggedin}/>
-      </div>
-    }
     if(this.state.selectedIndex==6){
       display=<CreatePrivateEvent username={this.state.username}/>
     }
     if(this.state.selectedIndex==7){
       display=<PrivateEvent/>
     }
-    
-    return (
-      <div>
-      {display}
-
+    if(this.state.selectedIndex==5){
+      display= 
+        <Mapbox login={loggedin}/>
+          return (
+            <div id="landing_map_wrapper">
+            {display}
       
-      </div>
-     
-    );
+            
+            </div>
+           
+          );
+    }
+    else{
+      return (
+        <div>
+        {display}
+  
+        
+        </div>
+       
+      );
+    }
   }
 }
 
