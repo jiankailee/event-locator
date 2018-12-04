@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import '../../App.css';
 import L from 'leaflet';
 import EventBox from './eventInfoBox'
+import {  altIcon  } from '../../alternateIcons/alternate_map_icon.png';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -24,7 +25,7 @@ class Mapbox extends Component {
         allLocation:[],
         privateLocation:[]
     }
-    Example = ({ components }) => (
+    Example = ({ altIcon, components }) => (
         <div>
             {components.map((component, i) => <Marker key={i} position={[component.latitude, component.longitude]}>
                 <Popup onOpen={() => this.passInfoToBox(component)}>

@@ -27,7 +27,7 @@ class eventInfoBox extends Component {
             <div id="top_x_button_long" onClick={this.passCloseBox}><CloseIcon /></div>
           </div>
           <div id="event_inside_box">
-            <LocalEvents goToPage={this.goToPage}/>
+            <LocalEvents loggedIn={this.props.loggedIn} goToPage={this.goToPage}/>
           </div>
         </div>
       );

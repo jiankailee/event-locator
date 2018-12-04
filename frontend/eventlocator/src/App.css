@@ -212,3 +212,8 @@
   text-align: center;
   padding-top: 10px;
 }
+
+#sidebox_overflow{
+  height: 100%;
+  overflow: auto;
+}

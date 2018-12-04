@@ -37,7 +37,7 @@ class Landing extends Component {
       sideContent = <SideArrow openBox={this.openBox}/>;
     }
     else if(this.state.eventBoxHidden === false){
-      sideContent = <EventInfoBox viewEvent={this.viewEvent} backToAllEvents={this.backPage} callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo} boxContent={this.state.boxContent}/>;
+      sideContent = <EventInfoBox loggedIn={false} viewEvent={this.viewEvent} backToAllEvents={this.backPage} callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo} boxContent={this.state.boxContent}/>;
     }
     return (
       <div id="landing_map_wrapper">
