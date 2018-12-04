@@ -36,7 +36,8 @@ class eventInfoBox extends Component {
     this.getUsersInfo();
   }
   getUsersInfo = _ => {
-    fetch('http://proj309-tg-07.misc.iastate.edu:8080/events')
+    //fetch('http://proj309-tg-07.misc.iastate.edu:8080/events')
+    fetch('http://localhost:8080/events')
         .then(response => response.json())
         .then(response => this.setState({ allLocation: response.data }))
         // .then({data})=>{
