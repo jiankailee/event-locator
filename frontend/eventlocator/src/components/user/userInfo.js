@@ -25,6 +25,7 @@ class userInfo extends Component {
     email:""
   };
   componentWillReceiveProps(nextProps){
+    //this.setState({selectedIndex: nextProps.location.state.selectedIndex})
     this.state.selectedIndex = nextProps.location.state.selectedIndex;
     console.log(nextProps)
   }
@@ -34,11 +35,11 @@ class userInfo extends Component {
   }
   reRender(){
     console.log(this.state.selectedIndex);
-    
   }
   getUser=_=>{
     // console.log(this.props.name)
-    fetch(`http://proj309-tg-07.misc.iastate.edu:8080/user/find?name=${this.props.match.params.userName}`)
+    //fetch(`http://proj309-tg-07.misc.iastate.edu:8080/user/find?name=${this.props.match.params.userName}`)
+    fetch(`http://localhost:8080/user/find?name=${this.props.match.params.userName}`)
     .then(response=>response.json())
     // .then(response=>console.log(response.data[0].username))
     .then(response=>this.setState({username: response.data[0].username, 
@@ -64,7 +65,8 @@ class userInfo extends Component {
               <div>email: {this.state.email}</div></div>]
     }
     if(this.state.selectedIndex==2){
-      display=<CreateEvent/>
+      display=[<CreateEvent/>,
+              <Mapbox height="500px"/>]
     }
     if(this.state.selectedIndex==3){
       display=<Eventlist/>
