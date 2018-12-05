@@ -21,27 +21,27 @@ let latLng = [];
 let test_info = [['Memorial Union', [42.0237, -93.6459]]];
 
 const iconRed = new L.Icon({
-    iconUrl: require('leaflet/dist/images/marker-icon-red.png'),
-    iconUrl: require('leaflet/dist/images/marker-icon-red-small.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    iconUrl: require('../Icons/marker-icon-red.png'),
+    iconUrl: require('../Icons/marker-icon-red-small.png'),
+    shadowUrl: require('../Icons/marker-shadow.png'),
      iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
      shadowAnchor: [12, 40],  // the same for the shadow
      popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
 });
 
 const iconYellow = new L.Icon({
-    iconUrl: require('leaflet/dist/images/marker-icon-yellow.png'),
-    iconUrl: require('leaflet/dist/images/marker-icon-yellow-small.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    iconUrl: require('../Icons/marker-icon-yellow.png'),
+    iconUrl: require('../Icons/marker-icon-yellow-small.png'),
+    shadowUrl: require('../Icons/marker-shadow.png'),
      iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
      shadowAnchor: [12, 40],  // the same for the shadow
      popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
 });
 
 const iconBlue = new L.Icon({
-    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-    iconUrl: require('leaflet/dist/images/marker-icon.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    iconRetinaUrl: require('../Icons/marker-icon-2x.png'),
+    iconUrl: require('../Icons/marker-icon.png'),
+    shadowUrl: require('../Icons/marker-shadow.png'),
      iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
      shadowAnchor: [12, 40],  // the same for the shadow
      popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
