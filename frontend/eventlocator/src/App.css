@@ -227,3 +227,19 @@
 #sidebar_zdex{
   z-index: 200000;
 }
+
+#top_location_search{
+  z-index: 100000;
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  padding: 5px 10px;
+}
+
+#top_location_search_button{
+  margin: 10px 0 0 10px;
+}
+
+#searchbar_text{
+  margin: 5px 5px 10px 5px;
+}

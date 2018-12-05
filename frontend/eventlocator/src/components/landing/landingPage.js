@@ -43,7 +43,7 @@ class Landing extends Component {
       <div id="landing_map_wrapper">
         {/* <div height="100%"><Grid/></div> */}
         {sideContent}
-        <Mapbox currentEventLocation={this.state.currentEventInfo} callbackFromParent={pass_marker_info}/>
+        <Mapbox currentEventLocation={this.state.currentEventInfo} noSidebar={false} callbackFromParent={pass_marker_info}/>
       </div>
     );
   }
