@@ -1,9 +1,7 @@
 stages:
  - testbackend
  - testfrontend
- - autodeploy
- - androidbuild
- - androidtest
+ - deploy
 
 testbackend:
  stage: testbackend
@@ -21,3 +19,8 @@ testfrontend:
   - cd frontend/eventlocator/src
   - npm build
 
+deploy:
+ stage: deploy
+  - git pull origin master
+  - sudo systemctl restart eventlocator-frontend
+  - sudo systemctl restart eventlocator-backend
