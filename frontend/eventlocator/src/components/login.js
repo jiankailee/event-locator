@@ -57,7 +57,7 @@ class login extends Component {
   }
   getUsersInfo=_=>{
     //fetch('http://proj309-tg-07.misc.iastate.edu:8080/usersInfo')
-    fetch('http://localhost:8080/usersInfo')
+    fetch('http://proj309-tg-07.misc.iastate.edu:8080/usersInfo')
     .then(response=>response.json())
     .then(response=>this.setState({alluser: response.data}))
     // .then({data})=>{

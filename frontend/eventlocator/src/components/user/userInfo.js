@@ -44,7 +44,7 @@ class userInfo extends Component {
   getUser=_=>{
     // console.log(this.props.name)
     //fetch(`http://proj309-tg-07.misc.iastate.edu:8080/user/find?name=${this.props.match.params.userName}`)
-    fetch(`http://localhost:8080/user/find?name=${this.props.match.params.userName}`)
+    fetch(`http://proj309-tg-07.misc.iastate.edu:8080/user/find?name=${this.props.match.params.userName}`)
     .then(response=>response.json())
     // .then(response=>console.log(response.data[0].username))
     .then(response=>this.setState({username: response.data[0].username, 

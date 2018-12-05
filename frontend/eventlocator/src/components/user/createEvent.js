@@ -79,7 +79,7 @@ class  CreateEvent extends Component {
         const { lat, lng } = response.results[0].geometry.location;
         console.log(lat, lng);
         if(eventInfo.eventname!==""&&eventInfo.address!==""&&eventInfo.description!==""){
-            fetch(`http://localhost:8080/events/add?eventname=${eventInfo.eventname}&description=${eventInfo.description}&address=${eventInfo.address}&longitude=${lng}&latitude=${lat}&endtime=${eventInfo.endtime}&starttime=${eventInfo.starttime}`);
+            fetch(`http://proj309-tg-07.misc.iastate.edu:8080/events/add?eventname=${eventInfo.eventname}&description=${eventInfo.description}&address=${eventInfo.address}&longitude=${lng}&latitude=${lat}&endtime=${eventInfo.endtime}&starttime=${eventInfo.starttime}`);
             this.setState({eventInfo:{...eventInfo,signed:true}});
             console.log("Event Created")
           }

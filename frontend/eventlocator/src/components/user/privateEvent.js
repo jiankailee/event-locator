@@ -40,7 +40,7 @@ class PrivateEvent extends React.Component {
    this.getEvent();
  }
  getEvent=_=>{
-  fetch('http://localhost:8080/privateevents')
+  fetch('http://proj309-tg-07.misc.iastate.edu:8080/privateevents')
   .then(response=>response.json())
   .then(response=>this.setState({allevent: response.data}))
   // .then({data})=>{
