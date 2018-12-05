@@ -96,7 +96,7 @@ class userInfo extends Component {
     }
     if(this.state.selectedIndex==2){
       display=[<CreateEvent/>,
-              <Mapbox currentEventLocation={null} height="500px"/>]
+              <Mapbox currentEventLocation={null} noSidebar={true} height="500px"/>]
     }
     if(this.state.selectedIndex==3){
       display=<Eventlist/>
@@ -105,14 +105,14 @@ class userInfo extends Component {
       display=<Chat name={this.state.username}/>
     }
     if(this.state.selectedIndex==6){
-      display=<CreatePrivateEvent username={this.state.username}/>
+      display=[<CreatePrivateEvent username={this.state.username}/>, <Mapbox currentEventLocation={null} noSidebar={true} height="500px"/>]
     }
     if(this.state.selectedIndex==7){
       display=<PrivateEvent/>
     }
     if(this.state.selectedIndex==5){
       display= 
-        <Mapbox currentEventLocation={this.state.currentEventInfo} login={loggedin} callbackFromParent={pass_marker_info}/>
+        <Mapbox noSidebar={false} currentEventLocation={this.state.currentEventInfo} login={loggedin} callbackFromParent={pass_marker_info}/>
           return (
             <div id="landing_map_wrapper">
             {sideContent}

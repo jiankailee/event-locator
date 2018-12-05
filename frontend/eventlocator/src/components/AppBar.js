@@ -38,7 +38,7 @@ class ButtonAppBar extends Component {
     const { classes } = this.props;
     let log_button, appbarCenter, hamButton;
     if (!this.props.logged_in) {
-      hamButton = null;
+      hamButton = <Button color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}></Button>;
       log_button = <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link>
       appbarCenter=<Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
     }

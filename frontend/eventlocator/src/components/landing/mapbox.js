@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import '../../App.css';
 import L from 'leaflet';
 import EventBox from './eventInfoBox'
-import {  altIcon  } from '../../alternateIcons/alternate_map_icon.png';
+import { altIcon } from '../../alternateIcons/alternate_map_icon.png';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -17,13 +17,13 @@ L.Icon.Default.mergeOptions({
 class Mapbox extends Component {
     constructor(props) {
         super(props);
-      }
+    }
     state = {
         lat: 42.0284,
         lng: -93.6509,
         zoom: 14,
-        allLocation:[],
-        privateLocation:[]
+        allLocation: [],
+        privateLocation: []
     }
     Example = ({ altIcon, components }) => (
         <div>
@@ -37,28 +37,30 @@ class Mapbox extends Component {
     componentDidMount() {
         this.getUsersInfo();
         this.getPrivateEvent();
-      }
-    componentWillReceiveProps(nextProps){
-        console.log(nextProps.currentEventLocation.latitude)
-        var new_latitude = nextProps.currentEventLocation.latitude;
-        var new_longitude = nextProps.currentEventLocation.longitude;
-        if(new_latitude != null && new_longitude != null){
-            this.setState({lat: new_latitude, lng: new_longitude});
+    }
+    componentWillReceiveProps(nextProps) {
+        if (this.props.noSidebar === false) {
+            var new_latitude = nextProps.currentEventLocation.latitude;
+            var new_longitude = nextProps.currentEventLocation.longitude;
+            if (new_latitude != null && new_longitude != null) {
+                this.setState({ lat: new_latitude, lng: new_longitude });
+            }
         }
     }
-    getPrivateEvent=_=>{
+    getPrivateEvent = _ => {
         fetch('http://proj309-tg-07.misc.iastate.edu:8080/privateevents')
-        .then(response=>response.json())
-        .then(response=>this.setState({privateLocation: response.data}))
-        // .then({data})=>{
-        //   console.log(data)
-        // })
-        .catch(err=>console.log(err))
+            .then(response => response.json())
+            .then(response => this.setState({ privateLocation: response.data }))
+            // .then({data})=>{
+            //   console.log(data)
+            // })
+            .catch(err => console.log(err))
         //console.log(this.state.alluser);
-      }
-    passInfoToBox = (values) =>{
-        this.props.callbackFromParent(values);
-        this.setState({lat: values.latitude, lng: values.longitude})
+    }
+    passInfoToBox = (values) => {
+        if(this.props.noSidebar === false)
+            this.props.callbackFromParent(values);
+        this.setState({ lat: values.latitude, lng: values.longitude })
     }
     getUsersInfo = _ => {
         //fetch('http://proj309-tg-07.misc.iastate.edu:8080/events')
@@ -73,8 +75,8 @@ class Mapbox extends Component {
     }
     render() {
         let display
-        if(this.props.login){
-            display=<this.Example components={this.state.privateLocation}/>
+        if (this.props.login) {
+            display = <this.Example components={this.state.privateLocation} />
         }
         return (
             <div className="map_wrapper">
