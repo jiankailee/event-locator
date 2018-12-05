@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar username={this.state.username} callbackFromParent={this.myCallback} closeBar={this.menuClosed} logged_in={this.state.logged_in} logged_out={this.setLogin} />
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={this.isMenuOpen} width={'200px'} logged_in={this.state.logged_in} username={this.state.username} callbackFromParent={this.myCallback}/>
+        <SideBar id="sidebar_zdex"  pageWrapId={"page-wrap"} outerContainerId={"App"} isOpen={this.state.box_open} onStateChange={this.isMenuOpen} width={'200px'} logged_in={this.state.logged_in} username={this.state.username} callbackFromParent={this.myCallback}/>
         <SwitchComponent callbackFromParent={this.setLogin} />
       </div>
     );

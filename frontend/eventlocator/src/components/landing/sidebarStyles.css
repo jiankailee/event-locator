@@ -12,6 +12,7 @@ body {
   margin-bottom: 10px;
   color: #d1d1d1;
   transition: color 0.2s;
+  z-index: 200000;
 }
 
 /* Change color on hover */

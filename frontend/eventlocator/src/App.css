@@ -69,7 +69,7 @@
   width: 400px; 
   height: 100%;
   position: relative;
-  z-index: 100000;
+  z-index: 1000;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -152,12 +152,12 @@
   left:0;
   background-color: white;
   width: 50px;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 #side_button{
   position: fixed;
-  z-index: 10000;
+  z-index: 1000;
   height: 20%;
   top:40%;
   background-color: #3f51b5;
@@ -222,4 +222,8 @@
 
 #selected_event_card{
   margin-top:20px;
+}
+
+#sidebar_zdex{
+  z-index: 200000;
 }

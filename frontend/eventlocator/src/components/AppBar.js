@@ -36,12 +36,14 @@ class ButtonAppBar extends Component {
   }
   render() {
     const { classes } = this.props;
-    let log_button,appbarCenter;
+    let log_button, appbarCenter, hamButton;
     if (!this.props.logged_in) {
+      hamButton = null;
       log_button = <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button color="inherit">Login</Button></Link>
       appbarCenter=<Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link>
     }
     else {
+      hamButton = <Button onClick={this.test_func} color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}>Menu</Button>
       log_button = <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', padding: '5px' }} to="/login"><Button onClick={this.logOut} color="inherit">Log Out</Button></Link>
       appbarCenter=<Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to={{pathname: `/user/${this.props.username}`, state: {selectedIndex: 5}}}><Button color="inherit">Event Locator</Button></Link>
     }
@@ -50,7 +52,7 @@ class ButtonAppBar extends Component {
       <div className={classes.root}>
         <AppBar position="static" style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: '5px' }}>
           {/* <Toolbar display= 'flex' justify-content='space-between' width='100%'> */}
-          <Button onClick={this.test_func} color="inherit" style={{ textDecoration: 'none', color: 'white', float: 'left' }}>Menu</Button>
+          {hamButton}
           {/* <Link onClick={this.closeBar_funct} style={{ textDecoration: 'none', color: 'white', flex: 1, padding: '5px' }} to='/'><Button color="inherit">Event Locator</Button></Link> */}
           {appbarCenter}
           {log_button}
