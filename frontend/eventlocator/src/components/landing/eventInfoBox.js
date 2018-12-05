@@ -1,4 +1,4 @@
-import React, { createRef, Component } from 'react';
+import React, { Component } from 'react';
 import 'leaflet/dist/leaflet.css';
 import '../../App.css';
 import CloseIcon from '@material-ui/icons/Close';
@@ -8,9 +8,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 class eventInfoBox extends Component {
-  constructor(props) {
-    super(props)
-  }
   passCloseBox = () => {
     this.props.callbackFromParent();
   }

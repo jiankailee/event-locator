@@ -31,8 +31,7 @@ class userInfo extends Component {
   };
   componentWillReceiveProps(nextProps){
     //this.setState({selectedIndex: nextProps.location.state.selectedIndex})
-    this.state.selectedIndex = nextProps.location.state.selectedIndex;
-    console.log(nextProps)
+    this.setState({selectedIndex: nextProps.location.state.selectedIndex})
   }
   componentDidMount(){
     this.getUser();
@@ -88,31 +87,31 @@ class userInfo extends Component {
       sideContent = <EventInfoBox loggedIn={loggedin} viewEvent={this.viewEvent} backToAllEvents={this.backPage} callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo} boxContent={this.state.boxContent}/>;
     }
 
-    if(this.state.selectedIndex==1){
+    if(this.state.selectedIndex===1){
       display=[<div><div>username: {this.state.username}</div>
               <div>password: {this.state.password}</div>
               <div>address: {this.state.address}</div>
               <div>email: {this.state.email}</div></div>]
     }
-    if(this.state.selectedIndex==2){
+    if(this.state.selectedIndex===2){
       display=[<CreateEvent/>,
               <Mapbox login={false} currentEventLocation={null} noSidebar={true} height="500px"/>]
     }
-    if(this.state.selectedIndex==3){
+    if(this.state.selectedIndex===3){
       display=<Eventlist/>
     }
-    if(this.state.selectedIndex==4){
+    if(this.state.selectedIndex===4){
       display=<Chat name={this.state.username}/>
     }
-    if(this.state.selectedIndex==6){
+    if(this.state.selectedIndex===6){
       display=[<CreatePrivateEvent username={this.state.username}/>, <Mapbox login={loggedin} showPrivate={true} currentEventLocation={null} noSidebar={true} height="500px"/>]
     }
-    if(this.state.selectedIndex==7){
+    if(this.state.selectedIndex===7){
       display=<PrivateEvent/>
     }
-    if(this.state.selectedIndex==5){
+    if(this.state.selectedIndex===5){
       display= 
-        <Mapbox login={loggedin} noSidebar={false} currentEventLocation={this.state.currentEventInfo} login={loggedin} callbackFromParent={pass_marker_info}/>
+        <Mapbox noSidebar={false} currentEventLocation={this.state.currentEventInfo} login={loggedin} callbackFromParent={pass_marker_info}/>
           return (
             <div id="landing_map_wrapper">
             {sideContent}

@@ -3,9 +3,6 @@ import { slide as Menu } from 'react-burger-menu'
 import { Link } from 'react-router-dom'
 
 class Example extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     page_num_val: 0
   }

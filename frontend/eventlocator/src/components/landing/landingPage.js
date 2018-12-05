@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import Grid from './grid';
 import Mapbox from './mapbox';
 import SideArrow from './sideOpenArrow'
 import '../../App.css'
 import EventInfoBox from './eventInfoBox'
 
 class Landing extends Component {
-  constructor(props){
-    super(props)
-  }
   state = {
     currentEventInfo: "",
     eventBoxHidden: true,

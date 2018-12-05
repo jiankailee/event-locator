@@ -31,27 +31,23 @@ const styles = theme => ({
 });
 
 
-class  CreateEvent extends Component {
-
-  constructor(props){
-    super(props);
-  }
-    state = {
-      eventInfo:{
+class CreateEvent extends Component {
+  state = {
+    eventInfo: {
       selectedIndex: 0,
-      address:"",
-      description:"",
-      eventname:"",
-      starttime:"",
-      endtime:"",
+      address: "",
+      description: "",
+      eventname: "",
+      starttime: "",
+      endtime: "",
       signed: false,
-      long:null,
-      lat:null,
-      
-     }
-    };
-    //onChange = this.change.bind(this);
-    //onSubmit = this.submit.bind(this);
+      long: null,
+      lat: null,
+
+    }
+  };
+  //onChange = this.change.bind(this);
+  //onSubmit = this.submit.bind(this);
 
   change = e => {
     this.setState({
@@ -70,39 +66,39 @@ class  CreateEvent extends Component {
   };
 
   submit = e => {
-     console.log("Submit Button pushed")
-    const {eventInfo}=this.state;
+    console.log("Submit Button pushed")
+    const { eventInfo } = this.state;
     //  let rlat,rlng;
     console.log(eventInfo.address)
     Geocode.fromAddress(eventInfo.address).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
         console.log(lat, lng);
-        if(eventInfo.eventname!==""&&eventInfo.address!==""&&eventInfo.description!==""){
-            fetch(`http://proj309-tg-07.misc.iastate.edu:8080/events/add?eventname=${eventInfo.eventname}&description=${eventInfo.description}&address=${eventInfo.address}&longitude=${lng}&latitude=${lat}&endtime=${eventInfo.endtime}&starttime=${eventInfo.starttime}`);
-            this.setState({eventInfo:{...eventInfo,signed:true}});
-            console.log("Event Created")
-          }
+        if (eventInfo.eventname !== "" && eventInfo.address !== "" && eventInfo.description !== "") {
+          fetch(`http://proj309-tg-07.misc.iastate.edu:8080/events/add?eventname=${eventInfo.eventname}&description=${eventInfo.description}&address=${eventInfo.address}&longitude=${lng}&latitude=${lat}&endtime=${eventInfo.endtime}&starttime=${eventInfo.starttime}`);
+          this.setState({ eventInfo: { ...eventInfo, signed: true } });
+          console.log("Event Created")
+        }
       },
       error => {
         console.error(error);
       }
     );
-} 
+  }
 
-  
+
   render() {
-  //console.log(this.props.match.params.userName)
+    //console.log(this.props.match.params.userName)
 
-   const { classes } = this.props;
-   const {eventInfo}=this.state;
-   let printSigned;
-   if(eventInfo.signed){
-	   printSigned=<div>Public event created!</div>
-   }
+    const { classes } = this.props;
+    const { eventInfo } = this.state;
+    let printSigned;
+    if (eventInfo.signed) {
+      printSigned = <div>Public event created!</div>
+    }
     return (
       <div>
-          <h2>Create A Public Event</h2>
+        <h2>Create A Public Event</h2>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
             id="eventname"
@@ -110,7 +106,7 @@ class  CreateEvent extends Component {
             name="eventname"
             className={classes.textField}
             value={eventInfo.eventname}
-            onChange={e=>this.setState({eventInfo:{...eventInfo,eventname:e.target.value}})}
+            onChange={e => this.setState({ eventInfo: { ...eventInfo, eventname: e.target.value } })}
             margin="normal"
           />
           <TextField
@@ -118,48 +114,48 @@ class  CreateEvent extends Component {
             id="address"
             label="address"
             className={classes.textField}
-	    value={eventInfo.address}
+            value={eventInfo.address}
             margin="normal"
-            onChange={e=>this.setState({eventInfo:{...eventInfo,address:e.target.value}})}
+            onChange={e => this.setState({ eventInfo: { ...eventInfo, address: e.target.value } })}
           />
           <TextField
-          name="description"
-          id="standard-multiline-flexible"
-          label="Description"
-          multiline
-          rowsMax="4"
-          value={eventInfo.description}
-          onChange={e=>this.setState({eventInfo:{...eventInfo,description:e.target.value}})}
-          className={classes.textField}
-          margin="normal"
-        />
-	    <TextField
-        id="starttime"
-        label="starttime"
-        type="datetime-local"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-        onChange={e=>this.setState({eventInfo:{...eventInfo,starttime:e.target.value}})}
-      />
-      <TextField
-        id="endtime"
-        label="endtime"
-        type="datetime-local"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-        onChange={e=>this.setState({eventInfo:{...eventInfo,endtime:e.target.value}})}
-      />
+            name="description"
+            id="standard-multiline-flexible"
+            label="Description"
+            multiline
+            rowsMax="4"
+            value={eventInfo.description}
+            onChange={e => this.setState({ eventInfo: { ...eventInfo, description: e.target.value } })}
+            className={classes.textField}
+            margin="normal"
+          />
+          <TextField
+            id="starttime"
+            label="starttime"
+            type="datetime-local"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={e => this.setState({ eventInfo: { ...eventInfo, starttime: e.target.value } })}
+          />
+          <TextField
+            id="endtime"
+            label="endtime"
+            type="datetime-local"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={e => this.setState({ eventInfo: { ...eventInfo, endtime: e.target.value } })}
+          />
           <Button onClick={e => this.submit(e)} variant="contained" className={classes.button}>
             Create
         </Button>
-	{printSigned}
-	</form>
+          {printSigned}
+        </form>
       </div>
-     
+
     );
   }
 }

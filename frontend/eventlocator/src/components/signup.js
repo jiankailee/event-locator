@@ -3,21 +3,16 @@ import { withStyles } from '@material-ui/core/styles';
 //import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-const mysql=require('mysql');
 
 
 const styles = theme => ({
 
   container: {
-    //display: 'flex',
     flexWrap: 'wrap',
-
   },
   textField: {
     display: 'block',
     margin: 'auto',
-    //   marginLeft: theme.spacing.unit,
-    //   marginRight: theme.spacing.unit,
     width: 200,
   },
   menu: {
@@ -48,24 +43,16 @@ class signup extends Component {
   }
   signup = e => {
     const {userInfo}=this.state;
-    //console.log(userInfo.signed);
     if(userInfo.username!==""&&userInfo.password!==""&&userInfo.email!==""&&userInfo.address!==""){
     fetch(`http://proj309-tg-07.misc.iastate.edu:8080/usersInfo/add?username=${userInfo.username}&password=${userInfo.password}&email=${userInfo.email}&address=${userInfo.address}`)
     this.setState({userInfo:{...userInfo,signed:true}});
-    //.catch(err=>console.log(err))
     }
-    //e.preventDefault();
-    //console.log(this.state);
-    // let json = JSON.stringify(this.state);
-    // console.log(json);
-    
   }
 
   render() {
     const { classes } = this.props;
     const {userInfo}=this.state;
     let printSigned;
-    //console.log("render: "+userInfo.signed);
     if(userInfo.signed){
       printSigned=<div>Thank you for registering! Please login in. </div>
     }

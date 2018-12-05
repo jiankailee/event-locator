@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-//import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { userInfo } from 'os';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const styles = theme => ({
 
   container: {
-    //display: 'flex',
     flexWrap: 'wrap',
   },
   textField: {
     display: 'block',
     margin: 'auto',
-    //marginLeft: theme.spacing.unit,
-    //marginRight: theme.spacing.unit,
     width: 200,
   },
   menu: {
@@ -56,15 +50,10 @@ class login extends Component {
     this.getUsersInfo();
   }
   getUsersInfo=_=>{
-    //fetch('http://proj309-tg-07.misc.iastate.edu:8080/usersInfo')
     fetch('http://proj309-tg-07.misc.iastate.edu:8080/usersInfo')
     .then(response=>response.json())
     .then(response=>this.setState({alluser: response.data}))
-    // .then({data})=>{
-    //   console.log(data)
-    // })
     .catch(err=>console.log(err))
-    // console.log(this.state.alluser);
   }
 
   passLogon = () => {

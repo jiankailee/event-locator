@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 
 
@@ -32,7 +29,6 @@ class Chat extends Component {
     }
   }
   render() {
-    const { classes } = this.props;
     const messages=this.state.messages.map((message,index)=>{
       return <div key={index}>{message.from}: <b>{message.body}</b></div>
     })

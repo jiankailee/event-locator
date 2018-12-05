@@ -10,9 +10,6 @@ import userInfo from './user/userInfo';
 
 
 class SwitchComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
   myCallback = (log_value, username_value) => {
     this.props.callbackFromParent(log_value, username_value);
   }
