@@ -229,7 +229,7 @@
 }
 
 #top_location_search{
-  z-index: 100000;
+  z-index: 900;
   position: absolute;
   top: 10px;
   left: 70px;

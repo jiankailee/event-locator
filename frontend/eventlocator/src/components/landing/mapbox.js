@@ -20,6 +20,33 @@ L.Icon.Default.mergeOptions({
 let latLng = [];
 let test_info = [['Memorial Union', [42.0237, -93.6459]]];
 
+const iconRed = new L.Icon({
+    iconUrl: require('leaflet/dist/images/marker-icon-red.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon-red-small.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+     iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
+     shadowAnchor: [12, 40],  // the same for the shadow
+     popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
+});
+
+const iconYellow = new L.Icon({
+    iconUrl: require('leaflet/dist/images/marker-icon-yellow.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon-yellow-small.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+     iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
+     shadowAnchor: [12, 40],  // the same for the shadow
+     popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
+});
+
+const iconBlue = new L.Icon({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+     iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
+     shadowAnchor: [12, 40],  // the same for the shadow
+     popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
+});
+
 class Mapbox extends Component {
     constructor(props) {
         super(props);
@@ -30,15 +57,17 @@ class Mapbox extends Component {
         value: '',
         result: '',
         onSub: 0,
+        currentMarkerName: "",
         lat: 42.0284,
         lng: -93.6509,
         zoom: 14,
         allLocation: [],
-        privateLocation: []
+        privateLocation: [],
+        currentMarkerLocation: [],
     }
-    Example = ({ components }) => (
+    Example = ({ markerColor, components }) => (
         <div>
-            {components.map((component, i) => <Marker key={i} position={[component.latitude, component.longitude]}>
+            {components.map((component, i) => <Marker key={i} icon={markerColor} position={[component.latitude, component.longitude]}>
                 <Popup onOpen={() => this.passInfoToBox(component)}>
                     {component.eventName}
                 </Popup>
@@ -48,6 +77,7 @@ class Mapbox extends Component {
     componentDidMount() {
         this.getUsersInfo();
         this.getPrivateEvent();
+        console.log(this.props.login)
     }
     handleChange(event) {
         this.setState({ value: event.target.value });
@@ -65,7 +95,7 @@ class Mapbox extends Component {
         Geocode.fromAddress(inputAddress).then(
             response => {
                 if (response.results[0].geometry.location.lat != null && response.results[0].geometry.location.lng != null)
-                    this.setState({ lat: response.results[0].geometry.location.lat, lng: response.results[0].geometry.location.lng });
+                    this.setState({ lat: response.results[0].geometry.location.lat, lng: response.results[0].geometry.location.lng, currentMarkerName: response.results[0].formatted_address, currentMarkerLocation: [response.results[0].geometry.location.lat, response.results[0].geometry.location.lng] });
             },
             error => {
                 console.error(error);
@@ -73,7 +103,7 @@ class Mapbox extends Component {
         )
     }
     componentWillReceiveProps(nextProps) { 
-        if (this.props.noSidebar === false) {
+        if (this.props.noSidebar === false && nextProps.currentEventLocation != null) {
             var new_latitude = nextProps.currentEventLocation.latitude;
             var new_longitude = nextProps.currentEventLocation.longitude;
             if (new_latitude != null && new_longitude != null) {
@@ -108,13 +138,26 @@ class Mapbox extends Component {
         //console.log(this.state.alluser);
     }
     render() {
-        let display
+        let display;
+        let resultMarker, publicEvents;
+        if(this.props.showPrivate === true){
+            publicEvents = null;
+        }
+        else{
+            publicEvents = <this.Example markerColor={iconBlue} components={this.state.allLocation} />;
+        }
         if (this.props.login) {
-            display = <this.Example components={this.state.privateLocation} />
+            display = <this.Example markerColor={iconYellow} components={this.state.privateLocation} />
         }
         if (this.state.onSub == 1) {
             this.addAddr(this.state.result);
             this.state.onSub = this.state.onSub - 1;
+        }
+        if(this.state.currentMarkerLocation != null && this.state.currentMarkerLocation[0] != null && this.state.currentMarkerLocation[1] != null){
+            resultMarker = <Marker icon={ iconRed } position={[this.state.currentMarkerLocation[0], this.state.currentMarkerLocation[1]]}><Popup>{this.state.currentMarkerName}</Popup></Marker>
+        }
+        else{
+            resultMarker = null;
         }
         return (
             <div className="map_wrapper">
@@ -133,13 +176,13 @@ class Mapbox extends Component {
                     </form>
                 </Card>
                 <Map className="map" center={this.state} zoom={this.state.zoom}>
-
+                    {resultMarker}
                     <TileLayer
                         attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     {display}
-                    <this.Example components={this.state.allLocation} />
+                    {publicEvents}
                 </Map>
             </div >
         );
