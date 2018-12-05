@@ -38,6 +38,14 @@ class Mapbox extends Component {
         this.getUsersInfo();
         this.getPrivateEvent();
       }
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps.currentEventLocation.latitude)
+        var new_latitude = nextProps.currentEventLocation.latitude;
+        var new_longitude = nextProps.currentEventLocation.longitude;
+        if(new_latitude != null && new_longitude != null){
+            this.setState({lat: new_latitude, lng: new_longitude});
+        }
+    }
     getPrivateEvent=_=>{
         fetch('http://proj309-tg-07.misc.iastate.edu:8080/privateevents')
         .then(response=>response.json())
@@ -50,7 +58,7 @@ class Mapbox extends Component {
       }
     passInfoToBox = (values) =>{
         this.props.callbackFromParent(values);
-        console.log(this.state.allLocation)
+        this.setState({lat: values.latitude, lng: values.longitude})
     }
     getUsersInfo = _ => {
         //fetch('http://proj309-tg-07.misc.iastate.edu:8080/events')
@@ -64,8 +72,6 @@ class Mapbox extends Component {
         //console.log(this.state.alluser);
     }
     render() {
-        console.log(this.state.allLocation)
-        console.log(this.props.login)
         let display
         if(this.props.login){
             display=<this.Example components={this.state.privateLocation}/>
