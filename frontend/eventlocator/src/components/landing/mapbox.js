@@ -3,12 +3,13 @@ import { Map, TileLayer, Marker, Popup, MapControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../../App.css';
 import L from 'leaflet';
-import LocateControl from 'react-leaflet-locate-control';
 import Geocode from 'react-geocode'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import location from 'browser-location';
+
 delete L.Icon.Default.prototype._getIconUrl;
 Geocode.setApiKey("AIzaSyBgd1QZKo1cbcKgiHoWbr6pcBTsrssKzT4");
 
@@ -24,27 +25,27 @@ const iconRed = new L.Icon({
     iconUrl: require('../Icons/marker-icon-red.png'),
     iconUrl: require('../Icons/marker-icon-red-small.png'),
     shadowUrl: require('../Icons/marker-shadow.png'),
-     iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
-     shadowAnchor: [12, 40],  // the same for the shadow
-     popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
+    iconAnchor: [12, 40], // point of the icon which will correspond to marker's location
+    shadowAnchor: [12, 40],  // the same for the shadow
+    popupAnchor: [0, -35],// point from which the popup should open relative to the iconAnchor
 });
 
 const iconYellow = new L.Icon({
     iconUrl: require('../Icons/marker-icon-yellow.png'),
     iconUrl: require('../Icons/marker-icon-yellow-small.png'),
     shadowUrl: require('../Icons/marker-shadow.png'),
-     iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
-     shadowAnchor: [12, 40],  // the same for the shadow
-     popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
+    iconAnchor: [12, 40], // point of the icon which will correspond to marker's location
+    shadowAnchor: [12, 40],  // the same for the shadow
+    popupAnchor: [0, -35],// point from which the popup should open relative to the iconAnchor
 });
 
 const iconBlue = new L.Icon({
     iconRetinaUrl: require('../Icons/marker-icon-2x.png'),
     iconUrl: require('../Icons/marker-icon.png'),
     shadowUrl: require('../Icons/marker-shadow.png'),
-     iconAnchor:   [12, 40], // point of the icon which will correspond to marker's location
-     shadowAnchor: [12, 40],  // the same for the shadow
-     popupAnchor:  [0, -35],// point from which the popup should open relative to the iconAnchor
+    iconAnchor: [12, 40], // point of the icon which will correspond to marker's location
+    shadowAnchor: [12, 40],  // the same for the shadow
+    popupAnchor: [0, -35],// point from which the popup should open relative to the iconAnchor
 });
 
 class Mapbox extends Component {
@@ -52,18 +53,27 @@ class Mapbox extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.runLocation = this.runLocation.bind(this);
     }
     state = {
         value: '',
         result: '',
         onSub: 0,
         currentMarkerName: "",
-        lat: 42.0284,
-        lng: -93.6509,
-        zoom: 14,
+        lat: 0,
+        lng: 0,
+        zoom: 1,
         allLocation: [],
         privateLocation: [],
         currentMarkerLocation: [],
+    }
+    runLocation(){
+        var temp_lat = 0, temp_lng = 0;
+        location.get(function (err, position) {
+            temp_lat = position.coords.latitude;
+            temp_lng = position.coords.longitude;
+            this.setState({lat: temp_lat, lng: temp_lng, zoom: 14, currentMarkerLocation: [temp_lat,temp_lng], currentMarkerName: "Current Location"})
+        }.bind(this))
     }
     Example = ({ markerColor, components }) => (
         <div>
@@ -78,6 +88,7 @@ class Mapbox extends Component {
         this.getUsersInfo();
         this.getPrivateEvent();
         console.log(this.props.login)
+        this.runLocation();
     }
     handleChange(event) {
         this.setState({ value: event.target.value });
@@ -102,7 +113,7 @@ class Mapbox extends Component {
             }
         )
     }
-    componentWillReceiveProps(nextProps) { 
+    componentWillReceiveProps(nextProps) {
         if (this.props.noSidebar === false && nextProps.currentEventLocation != null) {
             var new_latitude = nextProps.currentEventLocation.latitude;
             var new_longitude = nextProps.currentEventLocation.longitude;
@@ -140,10 +151,10 @@ class Mapbox extends Component {
     render() {
         let display;
         let resultMarker, publicEvents;
-        if(this.props.showPrivate === true){
+        if (this.props.showPrivate === true) {
             publicEvents = null;
         }
-        else{
+        else {
             publicEvents = <this.Example markerColor={iconBlue} components={this.state.allLocation} />;
         }
         if (this.props.login) {
@@ -153,10 +164,10 @@ class Mapbox extends Component {
             this.addAddr(this.state.result);
             this.state.onSub = this.state.onSub - 1;
         }
-        if(this.state.currentMarkerLocation != null && this.state.currentMarkerLocation[0] != null && this.state.currentMarkerLocation[1] != null){
-            resultMarker = <Marker icon={ iconRed } position={[this.state.currentMarkerLocation[0], this.state.currentMarkerLocation[1]]}><Popup>{this.state.currentMarkerName}</Popup></Marker>
+        if (this.state.currentMarkerLocation != null && this.state.currentMarkerLocation[0] != null && this.state.currentMarkerLocation[1] != null) {
+            resultMarker = <Marker icon={iconRed} position={[this.state.currentMarkerLocation[0], this.state.currentMarkerLocation[1]]}><Popup>{this.state.currentMarkerName}</Popup></Marker>
         }
-        else{
+        else {
             resultMarker = null;
         }
         return (
