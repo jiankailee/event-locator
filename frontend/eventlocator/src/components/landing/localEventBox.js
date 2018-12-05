@@ -4,9 +4,7 @@ import '../../App.css';
 import CloseIcon from '@material-ui/icons/Close';
 import BackButton from '@material-ui/icons/KeyboardArrowLeft';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 
 class eventInfoBox extends Component {
   constructor(props) {
@@ -22,13 +20,62 @@ class eventInfoBox extends Component {
     }
     else return description;
   }
+  process_date = (start_time, end_time) =>{
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var event_month;
+    var date;
+    if(months[parseInt(start_time.substring(5, 7))-1] === months[parseInt(end_time.substring(5, 7))-1]){
+      event_month = months[parseInt(start_time.substring(5, 7))-1];
+      date = event_month + " " + this.process_suffix(start_time.substring(8,10));
+    }
+    else{
+      event_month = [months[parseInt(start_time.substring(5, 7))-1], months[parseInt(end_time.substring(5, 7))-1]];
+      date = event_month[0] + " " + this.process_suffix(start_time.substring(8,10)) + event_month[1] + " - " + this.process_suffix(end_time.substring(8,10));
+    }
+    return date;
+  }
+  process_time = (start_time, end_time) =>{
+    var time = [start_time.substring(11, 16), end_time.substring(11, 16)];
+    var processed_time = [];
+    if(parseInt(time[0].substring(0,2)) > 11 && parseInt(time[0].substring(0,2)) != 24)
+      processed_time[0] = (parseInt(time[0].substring(0,2))%12).toString() + start_time.substring(13, 16) + "pm";
+    else
+      processed_time[0] = time[0].toString() + "am";
+    if(parseInt(time[1].substring(0,2)) > 11 && parseInt(time[1].substring(0,2)) != 24)
+      processed_time[1] = (parseInt(time[1].substring(0,2))%12).toString() + end_time.substring(13, 16) + "pm";
+    else
+      processed_time[1] = time[1].toString() + "am";
+    if(processed_time[0] != processed_time[1])
+      return (processed_time[0] + " - " + processed_time[1]);
+    else
+      return processed_time[0];
+  }
+  process_suffix = (number) =>{
+    if(number.charAt(0) === '0'){
+      number = parseInt(number.substring(1,2));
+    }
+    if(number === 1 || number === 21 || number === 31){
+      return number.toString() + "st";
+    }
+    else if(number === 2 || number == 22){
+      return number.toString() + "nd";
+    }
+    else if(number === 3 || number === 23){
+      return number.toString() + "rd";
+    }
+    else{
+      return number.toString() + "th";
+    }
+  }
   Example = ({ components }) => (
     <div>
       {components.map((component, i) => <Card onClick={()=>this.props.goToPage(component)} className="sidebar_card" key={i}>
         <CardContent>
           <h3 className="total_view_title_text">{component.eventName}</h3>
           <p className="total_view_body_text_border">{component.address}</p>
-          <p className="total_view_body_text">{this.truncate_description(component.description)}</p>
+          <p className="total_view_body_text_border">{this.truncate_description(component.description)}</p>
+          <p className="total_view_body_text">{this.process_date(component.starttime, component.endtime)}</p>
+          <p className="total_view_body_text">{this.process_time(component.starttime, component.endtime)}</p>
         </CardContent>
       </Card>)}
     </div>
@@ -63,12 +110,12 @@ class eventInfoBox extends Component {
     let box_content;
     if(this.state.allLocation.length > 0){
       if(this.props.loggedIn === false)
-        box_content = [<p id="no_local_events">Public Events</p>,<this.Example components={this.state.allLocation} />]
+        box_content = [<p id="event_box_title">Public Events</p>,<this.Example components={this.state.allLocation} />]
       else
-        box_content = [<p id="no_local_events">Public Events</p>,<this.Example components={this.state.allLocation} />,<p id="no_local_events">Private Events</p>, <this.Example components={this.state.privateLocation} />];
+        box_content = [<p id="event_box_title">Public Events</p>,<this.Example components={this.state.allLocation} />,<p id="event_box_title">Private Events</p>, <this.Example components={this.state.privateLocation} />];
     }
     else{
-      box_content = <p id="no_local_events">No local events found</p>
+      box_content = <p id="event_box_title">No local events found</p>
     }
     return (
       <div id="sidebox_overflow">
