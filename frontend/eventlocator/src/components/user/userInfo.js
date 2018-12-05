@@ -87,11 +87,15 @@ class userInfo extends Component {
       sideContent = <EventInfoBox loggedIn={loggedin} viewEvent={this.viewEvent} backToAllEvents={this.backPage} callbackFromParent={this.closeBox} currentInfo={this.state.currentEventInfo} boxContent={this.state.boxContent}/>;
     }
 
-    if(this.state.selectedIndex===1){
-      display=[<div><div>username: {this.state.username}</div>
-              <div>password: {this.state.password}</div>
-              <div>address: {this.state.address}</div>
-              <div>email: {this.state.email}</div></div>]
+    if(this.state.selectedIndex==1){
+      display=[<div class="my-info"><h3>My Infomation</h3>
+              <div class="info-details">
+                <div><b>username:</b> {this.state.username}</div>
+                <div><b>password:</b> {this.state.password}</div>
+                <div><b>address:</b> {this.state.address}</div>
+                <div><b>email:</b> {this.state.email}</div>
+              </div>
+              </div>]
     }
     if(this.state.selectedIndex===2){
       display=[<CreateEvent/>,
