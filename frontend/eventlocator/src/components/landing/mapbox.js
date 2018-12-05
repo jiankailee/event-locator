@@ -115,7 +115,7 @@ class Mapbox extends Component {
             var new_latitude = nextProps.currentEventLocation.latitude;
             var new_longitude = nextProps.currentEventLocation.longitude;
             if (new_latitude != null && new_longitude != null) {
-                this.setState({ lat: new_latitude, lng: new_longitude });
+                this.setState({ lat: new_latitude, lng: new_longitude , zoom: 14});
             }
         }
     }
