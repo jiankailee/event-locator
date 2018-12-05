@@ -67,10 +67,13 @@ class Mapbox extends Component {
     runLocation() {
         var temp_lat = 0, temp_lng = 0;
         location.get(function (err, position) {
-            if (position !== null) {
+            if (position !== null && position !== 'undefined') {
                 temp_lat = position.coords.latitude;
                 temp_lng = position.coords.longitude;
                 this.setState({ lat: temp_lat, lng: temp_lng, zoom: 14, currentMarkerLocation: [temp_lat, temp_lng], currentMarkerName: "Current Location" })
+            }
+            if(err != null){
+                console.log(err);
             }
         }.bind(this))
     }
