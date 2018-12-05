@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-r = requests.get('https://desmoines.craigslist.org/eve/d/storage-unit-auction-open-to/6715745382.html')
+r = requests.get('https://cedarrapids.craigslist.org/eve/d/friday-fish-fry-culinary/6750380553.html')
 print r.status_code
 reqtext = r.text
 #print reqtext
@@ -18,5 +18,7 @@ latitude = mapinfo['data-latitude']
 longitude = mapinfo['data-longitude']
 print latitude
 print longitude
+mapinfo2 = soup.body.userbody
+print mapinfo2
 #mapaddr = soup.find(class="mapaddress")
 #print mapaddr
