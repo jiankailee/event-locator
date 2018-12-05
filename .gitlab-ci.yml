@@ -1,33 +1,19 @@
 stages:
  - testbackend
  - testfrontend
-<<<<<<< HEAD
  - deploy
-=======
- - autodeploy
- - androidbuild
- - androidtest
->>>>>>> origin/search-test
 
 testbackend:
  stage: testbackend
  tags:
-<<<<<<< HEAD
   - Backend
  script:
   - cd backend/server
   - node -c index.js
-=======
-  - shell
- script:
-  - cd backend/server
-  - node index.js
->>>>>>> origin/search-test
 
 testfrontend:
  stage: testfrontend
  tags:
-<<<<<<< HEAD
   - Frontend
  script:
   - cd frontend/eventlocator/src
@@ -41,11 +27,4 @@ deploy:
   - git pull origin master
   - sudo systemctl restart eventlocator-frontend
   - sudo systemctl restart eventlocator-backend
-=======
-  - shell
- script:
-  - cd frontend/eventlocator/src
-  - npm install
-  - npm start
->>>>>>> origin/search-test
 
