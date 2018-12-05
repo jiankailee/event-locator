@@ -64,12 +64,14 @@ class Mapbox extends Component {
         privateLocation: [],
         currentMarkerLocation: [],
     }
-    runLocation(){
+    runLocation() {
         var temp_lat = 0, temp_lng = 0;
         location.get(function (err, position) {
-            temp_lat = position.coords.latitude;
-            temp_lng = position.coords.longitude;
-            this.setState({lat: temp_lat, lng: temp_lng, zoom: 14, currentMarkerLocation: [temp_lat,temp_lng], currentMarkerName: "Current Location"})
+            if (position !== null) {
+                temp_lat = position.coords.latitude;
+                temp_lng = position.coords.longitude;
+                this.setState({ lat: temp_lat, lng: temp_lng, zoom: 14, currentMarkerLocation: [temp_lat, temp_lng], currentMarkerName: "Current Location" })
+            }
         }.bind(this))
     }
     Example = ({ markerColor, components }) => (
@@ -154,7 +156,7 @@ class Mapbox extends Component {
         }
         if (this.state.onSub === 1) {
             this.addAddr(this.state.result);
-            this.setState({onSub: this.state.onSub - 1})
+            this.setState({ onSub: this.state.onSub - 1 })
         }
         if (this.state.currentMarkerLocation != null && this.state.currentMarkerLocation[0] != null && this.state.currentMarkerLocation[1] != null) {
             resultMarker = <Marker icon={iconRed} position={[this.state.currentMarkerLocation[0], this.state.currentMarkerLocation[1]]}><Popup>{this.state.currentMarkerName}</Popup></Marker>
