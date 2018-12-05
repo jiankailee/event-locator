@@ -21,6 +21,10 @@ testfrontend:
 
 deploy:
  stage: deploy
+ tags:
+  - deploycode
+ script:
   - git pull origin master
   - sudo systemctl restart eventlocator-frontend
   - sudo systemctl restart eventlocator-backend
+
