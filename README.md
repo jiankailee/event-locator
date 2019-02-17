@@ -6,7 +6,7 @@ Our project will require Nodejs and a reactive interface working with each other
 
 technologies: Front-end--Javascript, React,NPM, React-Leaflet, Back-end-- socket.io, Javascript, NodeJS,express, Database-MySQL
 
-
+teammates- Nathan Whitcome, Joel Wacker, Tong Di
 
 Design Description
 
